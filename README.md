@@ -8,7 +8,7 @@
 
 - Clone this repository 
 
-  `git clone https://github.com/browserstack/browserstack-examples-~framework1~-~framework2~`
+  `git clone https://github.com/browserstack/browserstack-examples-robot.git`
 - Install the following dependencies
   - ~lang~ >= ~version~
   - ~package manager~ >= ~version~
