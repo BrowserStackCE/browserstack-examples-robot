@@ -3,6 +3,7 @@ import json
 import csv
 import os
 
+bs_local = 0
 
 def combine_dict(dict1, dict2):
     dict_1 = json.loads(str(dict1))
@@ -39,25 +40,21 @@ def get_caps_local(caps_path):
 
     return caps_common
 
-
-
 def start_local(key):
-    #creates an instance of Local
+
+    global bs_local
     bs_local = Local()
 
-    #replace <browserstack-accesskey> with your key. You can also set an environment variable - "BROWSERSTACK_ACCESS_KEY".
 
     bs_local_args = { "key": key }
 
-    #starts thse Local instance with the required arguments
     bs_local.start(**bs_local_args)
-
-    #check if BrowserStack local instance is running
-    # print(bs_local.isRunning())
 
     return bs_local
 
-def stop_local(bs_local):
+def stop_local():
+
+    global bs_local
 
     bs_local.stop()
 

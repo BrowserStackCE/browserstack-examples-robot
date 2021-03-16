@@ -46,9 +46,11 @@ Start local Test
 
     # [return]  ${local_instance}
 
-Stop Local Test
-    [Arguments]   ${local_instance}
-    stop_local   ${local_instance}
+Stop Test
+    [Arguments]   ${testType}
+    Run Keyword If  '${testType}'=='local'    stop_local
+    Close Browser
+
 
 
 Get Password From CSV

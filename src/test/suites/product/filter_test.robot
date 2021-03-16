@@ -25,9 +25,7 @@ Apply 'Lowest to Highest' Order By Filter
     Check If Product Sorted
 
     Sleep   2
-
-
-    Close All Browsers
+    Stop Test  ${testType}
 
 # Test Case 2
 Apply Apple And Samsung Filter
@@ -42,4 +40,4 @@ Apply Apple And Samsung Filter
     Check If Total Product Changed  ${total_elements_before}
 
     Sleep   3
-    Close All Browsers
+    Stop Test  ${testType}

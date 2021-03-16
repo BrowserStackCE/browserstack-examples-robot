@@ -26,7 +26,7 @@ Check if Signin opens on clicking on favourites nav item
 
     Sleep    3   
 
-    Close All Browsers
+    Stop Test  ${testType}
 
 
 #Test Case 4
@@ -38,4 +38,4 @@ Check Login with locked_user
     Confirm Locked User Error
 
     Sleep    3
-    Close Browser
+    Stop Test  ${testType}

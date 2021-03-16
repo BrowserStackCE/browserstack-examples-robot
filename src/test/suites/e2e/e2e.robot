@@ -47,6 +47,6 @@ E2E Test
 
     Sleep   3
 
-    Close All Browsers
+    Stop Test  ${testType}
 
 

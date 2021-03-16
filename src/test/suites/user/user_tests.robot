@@ -24,7 +24,7 @@ Check Login with image_not_loading_user
     Check If Username Is    image_not_loading_user
 
     Sleep   3
-    Close Browser
+    Stop Test  ${testType}
 
 # Test Case 6
 Check Order in existing_orders_user
@@ -36,7 +36,7 @@ Check Order in existing_orders_user
     Confirm Order Greater Than Zero
 
     Sleep   3
-    Close Browser
+    Stop Test  ${testType}
 
 # Test Case 7
 Add fav and check fav Count
@@ -51,5 +51,5 @@ Add fav and check fav Count
     Favourites.Confirm Favourites Greater Than Zero
 
     Sleep   3
-    Close Browser
+    Stop Test  ${testType}
 
