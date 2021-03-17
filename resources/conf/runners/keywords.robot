@@ -12,7 +12,6 @@ Start Test
     Run Keyword If  '${error_status}'=='single'    Start single Test    ELSE    Start local Test
 
 
-
 Start single Test
 
     ${json2}=    Get file    ${caps_path}
@@ -51,9 +50,11 @@ Stop Test
     Run Keyword If  '${testType}'=='local'    stop_local
     Close Browser
 
-
-
 Get Password From CSV
     [Arguments]   ${username}
     ${password}   get_password   ${username}
     [return]  ${password}
+
+Set Location
+        [Arguments]   ${lat}    ${long}
+        set_loc   ${lat}    ${long}

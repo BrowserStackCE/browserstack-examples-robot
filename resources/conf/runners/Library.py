@@ -2,6 +2,12 @@ from browserstack.local import Local
 import json
 import csv
 import os
+from robot.libraries.BuiltIn import BuiltIn
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.keys import Keys
+
 
 bs_local = 0
 
@@ -72,3 +78,17 @@ def get_password(username):
                     # print(line)
                     if line[0] == username:
                         return line[1]
+
+
+def set_loc(lat, long):
+
+    se2lib = BuiltIn().get_library_instance('SeleniumLibrary')
+    # se2lib.driver.execute_script('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed","reason": "Oops! my sample test failed"}}')
+
+
+    se2lib.driver.execute_script(
+        "navigator.geolocation.getCurrentPosition = function(cb){cb({ coords: {accuracy: 20,altitude: null,altitudeAccuracy: null,heading: null,latitude: " + lat + ",longitude: " + long + ",speed: null}}); }"
+        )
+    se2lib.driver.execute_script(
+        "window.navigator.geolocation.getCurrentPosition = function(cb){cb({ coords: {accuracy: 20,altitude: null,altitudeAccuracy: null,heading: null,latitude: " + lat + ",longitude: " + long + ",speed: null}}); }"
+        )
