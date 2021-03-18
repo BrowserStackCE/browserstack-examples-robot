@@ -1,7 +1,7 @@
 *** Settings ***
 Library  SeleniumLibrary
 
-Resource  ${EXECDIR}/../../../../resources/conf/runners/keywords.robot
+Resource  ${CURDIR}/../../../../browserstack-RobotFramework/resources/conf/runners/keywords.robot
 
 *** Keywords ***
 Login
@@ -17,7 +17,6 @@ Login
     Press Keys    id=password    ${password}
     Press Keys    None    ENTER
     Press Keys    None    ENTER
-
 
 Login From CSV
     [Arguments]   ${username}

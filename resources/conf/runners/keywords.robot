@@ -2,7 +2,7 @@
 Library  Library.py
 
 *** Variables ***
-${caps_path}     ${EXECDIR}/../../../../resources/conf/caps/test_caps.json
+${caps_path}     ${CURDIR}/../../../../browserstack-examples-robot/resources/conf/caps/test_caps.json
 
 
 *** Keywords ***

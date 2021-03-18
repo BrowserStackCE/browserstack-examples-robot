@@ -12,6 +12,10 @@ Click On Favourites
     Wait Until Element Is Visible   id=favourites
     Click Element   id=favourites
 
+Click On Offers
+    Wait Until Element Is Visible   id=offers
+    Click Element   id=offers
+
 Check If Username Is
     [Arguments]   ${username}
     Wait Until Element Is Visible   class=username

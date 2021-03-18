@@ -1,7 +1,7 @@
 {
-    "user": "<USERNAME>",
-    "key": "<ACCESS_KEY>",
-    "application_endpoint": "https://bstackdemo.com",
+  "user": "<USERNAME>",
+  "key": "<ACCESS_KEY>",
+  "application_endpoint": "https://bstackdemo.com",
     "tests": {
       "parallel": {
         "common_caps": {
@@ -61,7 +61,7 @@
           {
             "os": "Windows",
             "os_version": "10",
-            "browser": "Firefox"
+            "browser": "Chrome"
           }
         ]
       },

@@ -17,3 +17,8 @@ Confirm Locked User Error
 Confirm Order Greater Than Zero
     ${orders}=     Get Element Count    class=order
     Should Be True  ${orders} > 0
+
+Confirm Offers Greater Than Zero
+    Wait Until Element Is Visible    class=offer
+    ${offers}=     Get Element Count    class=offer
+    Should Be True  ${offers} > 0
