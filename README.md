@@ -1,5 +1,48 @@
 # Browserstack Examples Robot Framework <a href="~framework1~"><img src="https://junit.org/junit5/assets/img/junit5-logo.png" alt="~Framework1~" height="22" /></a> <a href="~framework2~"><img src="https://brandslogos.com/wp-content/uploads/images/large/cucumber-logo.png" alt="~Framework2~" height="22" /></a> <a href="https://browserstack.com"><img src="https://camo.githubusercontent.com/799a5c97a4d00394703cf20a5de308784c5454c05726b4c6ba559397644e58d2/68747470733a2f2f643938623874316e6e756c6b352e636c6f756466726f6e742e6e65742f70726f64756374696f6e2f696d616765732f6c61796f75742f6c6f676f2d6865616465722e706e673f31343639303034373830" alt="Browserstack" height="22" /></a>
 
+
+## Commands to run the tests [Temporary: For Reviewer purpose only]
+
+## To run the tests on Browserstack [Temporary: For Reviewer purpose only]
+
+1. `robot --variable testType:single --suite e2e .` - Run e2e test suite
+2. `robot --variable testType:single --suite offers .` - Run offers test suite
+3. `robot --variable testType:single --suite user .` - Run user test suite
+4. `robot --variable testType:single --suite login .` - Run login test suite
+5. `robot --variable testType:single --suite product .` - Run product test suite
+6. `robot --variable testType:single --suite offers .` - Run product test suite
+
+## To run the test cases in each test suite parallely on Browserstack [Temporary: For Reviewer purpose only]
+1. `pabot --testlevelsplit --variable testType:single --suite e2e .` - Run e2e test suite
+2. `pabot --testlevelsplit --variable testType:single --suite offers .` - Run offers test suite
+3. `pabot --testlevelsplit --variable testType:single --suite user .` - Run user test suite
+4. `pabot --testlevelsplit --variable testType:single --suite login .` - Run login test suite
+5. `pabot --testlevelsplit --variable testType:single --suite product .` - Run product test suite
+6. `pabot --testlevelsplit --variable testType:single --suite offers .` - Run product test suite
+
+## To run on prem [Temporary: For Reviewer purpose only]
+1. `robot --variable testType:prem --suite e2e .` - Run e2e test suite
+2. `robot --variable testType:prem --suite offers .` - Run offers test suite
+3. `robot --variable testType:prem --suite user .` - Run user test suite
+4. `robot --variable testType:prem --suite login .` - Run login test suite
+5. `robot --variable testType:prem --suite product .` - Run product test suite
+6. `robot --variable testType:prem --suite offers .` - Run product test suite
+
+## To run with local testing [Temporary: For Reviewer purpose only]
+1. `robot --variable testType:local --suite e2e .` - Run e2e test suite
+2. `robot --variable testType:local --suite offers .` - Run offers test suite
+3. `robot --variable testType:local --suite user .` - Run user test suite
+4. `robot --variable testType:local --suite login .` - Run login test suite
+5. `robot --variable testType:local --suite product .` - Run product test suite
+6. `robot --variable testType:local --suite offers .` - Run product test suite
+
+## To run on Docker [Temporary: For Reviewer purpose only]
+
+`docker-compose up -d && robot --variable testType:docker --suite offers . && docker-compose down` - Run all test suites on self-hosted docker, change the suite name accordingly
+
+
+# Actual README [WIP]
+
 ## Introduction
 
 ~intro of framework~. In this document we will run sample tests designed for [browserstack-canonical-app](https://bstackdemo.com/) in this repository on different infrastructures in different configurations. The browserstack-canonical-app is a demo e-commerce application to demonstrate real-world usage of BrowserStack testing methods, patterns, and workflows. It is written using Next/React. The app is bundled with offers data, orders data and products data that contains everything you need to start using the app and run tests out-of-the-box.
