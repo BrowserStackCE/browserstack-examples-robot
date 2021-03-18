@@ -4,13 +4,12 @@ Library  Collections
 Library  OperatingSystem
 Library  String
 
-Resource  ${EXECDIR}/../../../../resources/conf/runners/keywords.robot
-Resource  ${EXECDIR}/../../../app/pages/Login.robot
-Resource  ${EXECDIR}/../../../app/pages/Checkout.robot
-Resource  ${EXECDIR}/../../../app/pages/HomePage.robot
-Resource  ${EXECDIR}/../../../app/pages/Confirmation.robot
-Resource  ${EXECDIR}/../../../app/pages/Favourites.robot
-
+Resource  ${CURDIR}/../../../../resources/conf/runners/keywords.robot
+Resource  ${CURDIR}/../../../app/pages/Login.robot
+Resource  ${CURDIR}/../../../app/pages/Checkout.robot
+Resource  ${CURDIR}/../../../app/pages/HomePage.robot
+Resource  ${CURDIR}/../../../app/pages/Confirmation.robot
+Resource  ${CURDIR}/../../../app/pages/Favourites.robot
 
 
 *** Test Cases ***
@@ -24,7 +23,7 @@ Check Login with image_not_loading_user
     Check If Username Is    image_not_loading_user
 
     Sleep   3
-    Stop Test  ${testType}
+    [Teardown]   Stop Test  ${testType}
 
 # Test Case 6
 Check Order in existing_orders_user
@@ -36,7 +35,7 @@ Check Order in existing_orders_user
     Confirm Order Greater Than Zero
 
     Sleep   3
-    Stop Test  ${testType}
+    [Teardown]   Stop Test  ${testType}
 
 # Test Case 7
 Add fav and check fav Count
@@ -51,5 +50,5 @@ Add fav and check fav Count
     Favourites.Confirm Favourites Greater Than Zero
 
     Sleep   3
-    Stop Test  ${testType}
+    [Teardown]   Stop Test  ${testType}
 

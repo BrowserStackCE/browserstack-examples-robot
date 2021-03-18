@@ -4,12 +4,12 @@ Library  Collections
 Library  OperatingSystem
 Library  String
 
-Resource  ${EXECDIR}/../../../../resources/conf/runners/keywords.robot
-Resource  ${EXECDIR}/../../../app/pages/Login.robot
-Resource  ${EXECDIR}/../../../app/pages/Checkout.robot
-Resource  ${EXECDIR}/../../../app/pages/HomePage.robot
-Resource  ${EXECDIR}/../../../app/pages/Confirmation.robot
-Resource  ${EXECDIR}/../../../app/pages/Favourites.robot
+Resource  ${CURDIR}/../../../../resources/conf/runners/keywords.robot
+Resource  ${CURDIR}/../../../app/pages/Login.robot
+Resource  ${CURDIR}/../../../app/pages/Checkout.robot
+Resource  ${CURDIR}/../../../app/pages/HomePage.robot
+Resource  ${CURDIR}/../../../app/pages/Confirmation.robot
+Resource  ${CURDIR}/../../../app/pages/Favourites.robot
 
 
 *** Test Cases ***
@@ -26,7 +26,7 @@ Check if Signin opens on clicking on favourites nav item
 
     Sleep    3   
 
-    Stop Test  ${testType}
+    [Teardown]   Stop Test  ${testType}
 
 
 #Test Case 4
@@ -38,4 +38,4 @@ Check Login with locked_user
     Confirm Locked User Error
 
     Sleep    3
-    Stop Test  ${testType}
+    [Teardown]   Stop Test  ${testType}

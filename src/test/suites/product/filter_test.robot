@@ -4,14 +4,12 @@ Library  Collections
 Library  OperatingSystem
 Library  String
 
-Resource  ${EXECDIR}/../../../../resources/conf/runners/keywords.robot
-Resource  ${EXECDIR}/../../../app/pages/Login.robot
-Resource  ${EXECDIR}/../../../app/pages/Checkout.robot
-Resource  ${EXECDIR}/../../../app/pages/HomePage.robot
-Resource  ${EXECDIR}/../../../app/pages/Confirmation.robot
-
-*** Variables ***
-${testType}    single
+Resource  ${CURDIR}/../../../../resources/conf/runners/keywords.robot
+Resource  ${CURDIR}/../../../app/pages/Login.robot
+Resource  ${CURDIR}/../../../app/pages/Checkout.robot
+Resource  ${CURDIR}/../../../app/pages/HomePage.robot
+Resource  ${CURDIR}/../../../app/pages/Confirmation.robot
+Resource  ${CURDIR}/../../../app/pages/Favourites.robot
 
 
 *** Test Cases ***
@@ -25,7 +23,7 @@ Apply 'Lowest to Highest' Order By Filter
     Check If Product Sorted
 
     Sleep   2
-    Stop Test  ${testType}
+    [Teardown]   Stop Test  ${testType}
 
 # Test Case 2
 Apply Apple And Samsung Filter
@@ -40,4 +38,4 @@ Apply Apple And Samsung Filter
     Check If Total Product Changed  ${total_elements_before}
 
     Sleep   3
-    Stop Test  ${testType}
+    [Teardown]   Stop Test  ${testType}

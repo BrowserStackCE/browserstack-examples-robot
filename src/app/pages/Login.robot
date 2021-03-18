@@ -16,6 +16,7 @@ Login
     Press Keys    None    ENTER
     Press Keys    id=password    ${password}
     Press Keys    None    ENTER
+    Press Keys    None    ENTER
 
 
 Login From CSV
@@ -31,4 +32,5 @@ Login From CSV
 
     ${password}=    keywords.Get Password From CSV  ${username}
     Press Keys    id=password    ${password}
+    Press Keys    None    ENTER
     Press Keys    None    ENTER

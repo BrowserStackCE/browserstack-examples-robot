@@ -6,10 +6,11 @@ ${caps_path}     ${EXECDIR}/../../../../resources/conf/caps/test_caps.json
 
 
 *** Keywords ***
-
 Start Test
-    [Arguments]   ${error_status}
-    Run Keyword If  '${error_status}'=='single'    Start single Test    ELSE    Start local Test
+    [Arguments]   ${testType}
+    # Run Keyword If  '${testType}'=='single'    Start single Test    ELSE    Start local Test
+
+    Run Keyword If    '${testType}'=='single'    Start single Test    ELSE IF    '${testType}'=='local'    Start local Test        ELSE IF    '${testType}'=='docker'    Start docker Test    ELSE    Start prem Test
 
 
 Start single Test
@@ -25,8 +26,9 @@ Start single Test
     ${caps}=    get_caps_single    ${caps_path}
 
     Open Browser    ${application_endpoint}    remote_url=http://${user}:${access_key}@hub-cloud.browserstack.com/wd/hub    desired_capabilities=${caps}
+    # Open Browser    ${application_endpoint}    Firefox    remote_url=http://localhost:4444/wd/hub
 
-
+# http://selenium_hub:4444/wd/hub
 Start local Test
 
     ${json2}=    Get file    ${caps_path}
@@ -45,10 +47,38 @@ Start local Test
 
     # [return]  ${local_instance}
 
+Stop Local Test
+    stop_local
+
+
+Start prem Test
+
+    ${json2}=    Get file    ${caps_path}
+    ${json_object2}=    Evaluate    json.loads('''${json2}''')    json
+
+
+    ${application_endpoint}=    Set Variable     ${json_object2['application_endpoint']}
+
+
+    Open Browser    ${application_endpoint}   chrome
+
+
+Start docker Test
+
+    ${json2}=    Get file    ${caps_path}
+    ${json_object2}=    Evaluate    json.loads('''${json2}''')    json
+
+
+    ${application_endpoint}=    Set Variable     ${json_object2['application_endpoint']}
+
+    Open Browser    ${application_endpoint}    chrome    remote_url=http://localhost:4444/wd/hub
+
+
 Stop Test
     [Arguments]   ${testType}
     Run Keyword If  '${testType}'=='local'    stop_local
     Close Browser
+
 
 Get Password From CSV
     [Arguments]   ${username}
@@ -58,3 +88,4 @@ Get Password From CSV
 Set Location
         [Arguments]   ${lat}    ${long}
         set_loc   ${lat}    ${long}
+
