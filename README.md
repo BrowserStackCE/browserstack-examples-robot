@@ -40,6 +40,18 @@
 
 `docker-compose up -d && robot --variable testType:docker --suite offers . && docker-compose down` - Run all test suites on self-hosted docker, change the suite name accordingly
 
+## To generate Reports using Allure [Temporary: For Reviewer purpose only]
+
+`pip install allure-robotframework`
+
+Add  `--listener 'allure_robotframework;./results/allure'` to any test command above.
+
+Example:
+
+`robot --listener 'allure_robotframework;./results/allure' --variable testType:single --suite offers .`
+
+
+
 
 # Actual README [WIP]
 
