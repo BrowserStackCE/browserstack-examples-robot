@@ -3,6 +3,9 @@
 
 ## Commands to run the tests [Temporary: For Reviewer purpose only]
 
+Install all required libraries:
+`pip install -r requirements.txt`
+
 ## To run the tests on Browserstack [Temporary: For Reviewer purpose only]
 
 1. `robot --variable testType:single --suite e2e .` - Run e2e test suite
