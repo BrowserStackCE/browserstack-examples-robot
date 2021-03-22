@@ -89,3 +89,12 @@ Set Location
         [Arguments]   ${lat}    ${long}
         set_loc   ${lat}    ${long}
 
+Mark Test Pass
+        mark_pass
+
+Mark Test Fail
+        mark_fail
+
+Rename Session
+    [Arguments]   ${new_name}
+    set_session_name    ${new_name}

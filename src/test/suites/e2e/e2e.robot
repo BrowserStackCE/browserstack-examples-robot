@@ -18,6 +18,8 @@ E2E Test
 
     Start Test  ${testType}
 
+    Rename Session  Check Offers Test
+
     Login From CSV    fav_user
 
 
@@ -44,6 +46,8 @@ E2E Test
     Click On Orders
 
     Item In Orders Should Be Equal To   3
+
+    Mark Test Pass
 
     Sleep   3
 

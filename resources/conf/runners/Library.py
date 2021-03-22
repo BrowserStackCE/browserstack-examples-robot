@@ -92,3 +92,17 @@ def set_loc(lat, long):
     se2lib.driver.execute_script(
         "window.navigator.geolocation.getCurrentPosition = function(cb){cb({ coords: {accuracy: 20,altitude: null,altitudeAccuracy: null,heading: null,latitude: " + lat + ",longitude: " + long + ",speed: null}}); }"
         )
+
+def mark_pass():
+    se2lib = BuiltIn().get_library_instance('SeleniumLibrary')
+    se2lib.driver.execute_script('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed","reason": "Test Ran Succesfully"}}')
+
+def mark_fail():
+    se2lib = BuiltIn().get_library_instance('SeleniumLibrary')
+    se2lib.driver.execute_script('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed","reason": "Oops! my sample test failed"}}')
+
+
+def set_session_name(new_name):
+    se2lib = BuiltIn().get_library_instance('SeleniumLibrary')
+    se2lib.driver.execute_script('browserstack_executor: {"action": "setSessionName", "arguments": {"name": "' + new_name + '"}}')
+

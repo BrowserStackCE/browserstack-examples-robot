@@ -18,9 +18,13 @@ Check Login with image_not_loading_user
 
     Start Test  ${testType}
 
+    Rename Session  Check image_not_loading_user
+
     Login.Login  image_not_loading_user  testingisfun99
 
     Check If Username Is    image_not_loading_user
+
+    Mark Test Pass
 
     Sleep   3
     [Teardown]   Stop Test  ${testType}
@@ -29,10 +33,15 @@ Check Login with image_not_loading_user
 Check Order in existing_orders_user
 
     Start Test  ${testType}
+
+    Rename Session  Check Orders
+
     Login.Login  existing_orders_user  testingisfun99
 
     Click On Orders
     Confirm Order Greater Than Zero
+
+    Mark Test Pass
 
     Sleep   3
     [Teardown]   Stop Test  ${testType}
@@ -41,6 +50,9 @@ Check Order in existing_orders_user
 Add fav and check fav Count
 
     Start Test  ${testType}
+
+    Rename Session  Add Favourite
+
     Login.Login  existing_orders_user  testingisfun99
 
     Favourites.Add Item To Fav
@@ -48,6 +60,8 @@ Add fav and check fav Count
     HomePage.Click On Favourites
 
     Favourites.Confirm Favourites Greater Than Zero
+
+    Mark Test Pass
 
     Sleep   3
     [Teardown]   Stop Test  ${testType}

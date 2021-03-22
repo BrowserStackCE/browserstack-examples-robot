@@ -55,7 +55,11 @@
         "common_caps": {
           "project": "BrowserStack",
           "build": "Automate Demo",
-          "name": "Single Test: "
+          "name": "Single Test: ",
+          "chromeOptions": {
+            "w3c" : "false"
+          },
+          "browserstack.maskCommands": "setValues"
         },
         "env_caps": [
           {
@@ -75,7 +79,8 @@
           "browserstack.debug": "true",
           "browserstack.networkLogs": "true",
           "browserstack.console": "verbose",
-          "browserstack.local": "true"
+          "browserstack.local": "true",
+          "browserstack.maskCommands": "setValues"
         },
         "env_caps": [
           {

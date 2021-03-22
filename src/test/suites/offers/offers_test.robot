@@ -17,6 +17,8 @@ Set GPS location to Mumbai and check offers
 
     Start Test  ${testType}
 
+    Rename Session  Check Offers
+
     Set Location    19.043192    72.86305240000002
 
     Login From CSV    fav_user
@@ -24,6 +26,8 @@ Set GPS location to Mumbai and check offers
     Click On Offers
 
     Confirm Offers Greater Than Zero
+
+    Mark Test Pass
 
     Sleep   3
     [Teardown]   Stop Test  ${testType}
