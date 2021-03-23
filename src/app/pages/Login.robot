@@ -1,7 +1,7 @@
 *** Settings ***
 Library  SeleniumLibrary
 
-Resource  ${CURDIR}/../../../../browserstack-RobotFramework/resources/conf/runners/keywords.robot
+Resource  ${CURDIR}/../../../../browserstack-examples-robot/resources/conf/runners/keywords.robot
 
 *** Keywords ***
 Login

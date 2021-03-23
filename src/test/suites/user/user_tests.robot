@@ -18,7 +18,7 @@ Check Login with image_not_loading_user
 
     Start Test  ${testType}
 
-    Rename Session  Check image_not_loading_user
+    Run Keyword If    '${testType}'=='single'    Rename Session  Check image_not_loading_user    ELSE IF    '${testType}'=='local'    Rename Session  Check image_not_loading_user
 
     Login.Login  image_not_loading_user  testingisfun99
 
@@ -34,7 +34,7 @@ Check Order in existing_orders_user
 
     Start Test  ${testType}
 
-    Rename Session  Check Orders
+    Run Keyword If    '${testType}'=='single'    Rename Session  Check existing_orders_user    ELSE IF    '${testType}'=='local'    Rename Session  Check existing_orders_user
 
     Login.Login  existing_orders_user  testingisfun99
 
@@ -51,7 +51,7 @@ Add fav and check fav Count
 
     Start Test  ${testType}
 
-    Rename Session  Add Favourite
+    Run Keyword If    '${testType}'=='single'    Rename Session  Check Fav    ELSE IF    '${testType}'=='local'    Rename Session  Check Fav
 
     Login.Login  existing_orders_user  testingisfun99
 
@@ -61,7 +61,7 @@ Add fav and check fav Count
 
     Favourites.Confirm Favourites Greater Than Zero
 
-    Mark Test Pass
+    Run Keyword If    '${testType}'=='single'    Mark Test Pass    ELSE IF    '${testType}'=='local'    Mark Test Pass
 
     Sleep   3
     [Teardown]   Stop Test  ${testType}

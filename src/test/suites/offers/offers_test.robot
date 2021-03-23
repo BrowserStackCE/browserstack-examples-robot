@@ -15,9 +15,9 @@ Resource  ${CURDIR}/../../../app/pages/Favourites.robot
 #Test Case 9
 Set GPS location to Mumbai and check offers
 
-    Start Test  ${testType}
+    keywords.Start Test  ${testType}
 
-    Rename Session  Check Offers
+    Run Keyword If    '${testType}'=='single'    Rename Session  Check Offers Test    ELSE IF    '${testType}'=='local'    Rename Session  Check Offers Test
 
     Set Location    19.043192    72.86305240000002
 
@@ -27,7 +27,7 @@ Set GPS location to Mumbai and check offers
 
     Confirm Offers Greater Than Zero
 
-    Mark Test Pass
+    Run Keyword If    '${testType}'=='single'    Mark Test Pass    ELSE IF    '${testType}'=='local'    Mark Test Pass
 
     Sleep   3
     [Teardown]   Stop Test  ${testType}

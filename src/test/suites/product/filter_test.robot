@@ -18,13 +18,13 @@ Apply 'Lowest to Highest' Order By Filter
 
     Start Test  ${testType}
 
-    Rename Session  Apply Lowest to Highest Filter
+    Run Keyword If    '${testType}'=='single'    Rename Session  Apply Filter    ELSE IF    '${testType}'=='local'    Rename Session  Apply Filter
 
     Select Lowest To Highest Filter
 
     Check If Product Sorted
 
-    Mark Test Pass
+    Run Keyword If    '${testType}'=='single'    Mark Test Pass    ELSE IF    '${testType}'=='local'    Mark Test Pass
 
     Sleep   2
     [Teardown]   Stop Test  ${testType}
@@ -34,7 +34,7 @@ Apply Apple And Samsung Filter
 
     Start Test  ${testType}
 
-    Rename Session  Apply Apple and Samsung filter
+    Run Keyword If    '${testType}'=='single'    Rename Session  Apply Filter    ELSE IF    '${testType}'=='local'    Rename Session  Apply Filter
 
     ${total_elements_before}=  Get Total Products
 
@@ -43,7 +43,7 @@ Apply Apple And Samsung Filter
 
     Check If Total Product Changed  ${total_elements_before}
 
-    Mark Test Pass
+    Run Keyword If    '${testType}'=='single'    Mark Test Pass    ELSE IF    '${testType}'=='local'    Mark Test Pass
 
     Sleep   3
     [Teardown]   Stop Test  ${testType}

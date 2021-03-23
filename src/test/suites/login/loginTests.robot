@@ -18,7 +18,7 @@ Check if Signin opens on clicking on favourites nav item
 
     Start Test  ${testType}
 
-    Rename Session  Check Favourites
+    Run Keyword If    '${testType}'=='single'    Rename Session  Check Fav Nav    ELSE IF    '${testType}'=='local'    Rename Session  Check Fav Nav
 
     Click On Favourites
 
@@ -26,7 +26,7 @@ Check if Signin opens on clicking on favourites nav item
 
     On Signin Page
 
-    Mark Test Pass
+    Run Keyword If    '${testType}'=='single'    Mark Test Pass    ELSE IF    '${testType}'=='local'    Mark Test Pass
 
     Sleep    3   
 
@@ -38,13 +38,13 @@ Check Login with locked_user
 
     Start Test  ${testType}
 
-    Rename Session  Check locked_user
+    Run Keyword If    '${testType}'=='single'    Rename Session  Check locked_user    ELSE IF    '${testType}'=='local'    Rename Session  Check locked_user
 
     Login.Login  locked_user  testingisfun99
     
     Confirm Locked User Error
 
-    Mark Test Pass
+    Run Keyword If    '${testType}'=='single'    Mark Test Pass    ELSE IF    '${testType}'=='local'    Mark Test Pass
 
     Sleep    3
     [Teardown]   Stop Test  ${testType}
