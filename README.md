@@ -148,16 +148,10 @@ Note: The ChromeDriver version must match the Chrome browser version on your mac
 
 - How to run the test?
 
-  To run the default test scenario (e.g. End to End Scenario) on your own machine, use the following command:
-  
-  ```sh
-  robot --variable testType:on-prem --suite e2e .
-  ```
-
   To run a specific test scenario, use the following command with the additional 'test-name' argument:
   
   ```sh
-  robot --variable testType:on-prem --suite "<Test scenario name>" .
+  robot --variable testType:on-prem --test "<Test scenario name>" . 
   ```
 
 
@@ -210,25 +204,13 @@ Note: The ChromeDriver version must match the Chrome browser version on your mac
   docker-compose up -d
   ```
 
-    - To run the default test scenario (e.g. End to End Scenario) on your own machine, use the following command:
-
-
-  Gradle:
-    ```sh
-  <Gradle command>
-  ```
-
   To run a specific test scenario, use the following command with the additional 'test-name' argument:
 
-  Maven:
   ```sh
-  mvn install -P docker -Dtest-name="<Test scenario name>"
+    robot --variable testType:docker --test "<Test scenario name>" . 
+
   ```
 
-  Gradle:
-  ```sh
-  <Gradle command>
-  ```
   
   where,  the argument 'test-name' can be any Cucumber scenario name configured in this repository.
   
@@ -314,24 +296,14 @@ In this section, we will run a single test on Chrome browser on Browserstack. To
 
 - How to run the test?
   
-  - To run the default test scenario (e.g. End to End Scenario) on your own machine, use the following command:
-
-  ```sh
-  robot --variable testType:bstack-single --suite 
-  ```
-
 
   To run a specific test scenario, use the following command with the additional 'test-name' argument:
-  Maven:
+
   ```sh
-  mvn install -P bstack-single -Dtest-name="<Test scenario name>"
+  robot --variable testType:bstack-single --test "<Test scenario name>" . 
+
   ```
 
-  Gradle:
-  ```sh
-  <Gradle command>
-  ```
-  
   where,  the argument 'test-name' can be any Cucumber scenario name configured in this repository.
   
   E.g. "Login as username", "Login as Locked User", "Offers for mumbai geo-location" or any of the other test scenario names, as outlined in [About the tests in this repository](#About-the-tests-in-this-repository) section.
@@ -402,27 +374,11 @@ In this section, we will run the tests in parallel on multiple browsers on Brows
 
 - How to run the test?
 
-  - To run the default test scenario (e.g. End to End Scenario) on a single BrowserStack browser using BrowserStackLocal, use the following command:
-
-  Maven:
-  ```sh
-  mvn test -P bstack-local
-  ```
-
-  Gradle:
-    ```sh
-  <Gradle command>
-  ```
-
   To run a specific test scenario, use the following command with the additional test-name argument:
-  Maven:
-  ```sh
-  mvn install -P bstack-local -Dtest-name="<Test scenario name>"
-  ```
 
-  Gradle:
   ```sh
-  <Gradle command>
+    robot --variable testType:bstack-local --test "<Test scenario name>" . 
+
   ```
   
   where,  the argument 'test-name' can be any Cucumber scenario name configured in this repository.
@@ -437,7 +393,7 @@ In this section, we will run the tests in parallel on multiple browsers on Brows
 
 ### [Web application hosted on internal environment] Run the entire test suite in parallel on a single BrowserStack browser using BrowserStackLocal
 
-In this section, we will run the test cases to test the internally hosted website in parallel on a single browser on Browserstack. Refer to the `single_local` object in `caps.json` file to change test capabilities for this configuration.
+In this section, we will run the test cases to test the internally hosted website in parallel on a single browser on Browserstack. Refer to the `single_local` object in `test_caps.json` file to change test capabilities for this configuration.
 
 - How to run the test?
 
@@ -475,7 +431,7 @@ In this section, we will run the test cases to test the internally hosted websit
 ## Generating Allure Reports
 
 - Add `--listener 'allure_robotframework;./results/allure'` to any test command above.
-  - Example: robot --listener 'allure_robotframework;./results/allure' --variable testType:single --suite offers .
+  - Example: `robot --listener 'allure_robotframework;./results/allure' --variable testType:single --suite offers .`
 
 - Serve the Allure report on a server: `allure serve`
 
