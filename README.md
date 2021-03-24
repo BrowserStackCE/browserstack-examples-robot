@@ -1,9 +1,9 @@
 ![Logo](https://www.browserstack.com/images/static/header-logo.jpg)
 
-# BrowserStack Examples Cucumber JUnit5 <a href="https://cucumber.io"><img src="https://brandslogos.com/wp-content/uploads/images/large/cucumber-logo.png" alt="Cucumber" height="22" /></a> <a href="https://junit.org/junit5/"><img src="https://junit.org/junit5/assets/img/junit5-logo.png" alt="JUnit5" height="22" /></a>
+# BrowserStack Examples Robot Framework <a href="https://robotframework.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Robot-framework-logo.png" alt="Robot" height="30" /></a> <a href="https://www.python.org//"><img src="https://www.python.org/static/img/python-logo@2x.png" alt="python" height="22" /></a>
 
 
-## Commands to run the tests [Temporary: For Reviewer purpose only]
+<!-- ## Commands to run the tests [Temporary: For Reviewer purpose only]
 
 Install all required libraries:
 `pip install -r requirements.txt`
@@ -55,10 +55,8 @@ Example:
 
 `robot --listener 'allure_robotframework;./results/allure' --variable testType:single --suite offers .`
 
-
-
-
-# Actual README [WIP]
+ -->
+<!-- # Actual README [WIP] -->
 
 
 ## Introduction
