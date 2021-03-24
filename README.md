@@ -445,10 +445,3 @@ In this section, we will run the test cases to test the internally hosted websit
 - Understand how many parallel sessions you need by using our [Parallel Test Calculator](https://www.browserstack.com/automate/parallel-calculator?ref=github)
 - For testing public web applications behind IP restriction, [Inbound IP Whitelisting](https://www.browserstack.com/local-testing/inbound-ip-whitelisting) can be enabled with the [BrowserStack Enterprise](https://www.browserstack.com/enterprise) offering
 
-## Observations
-
- <Placeholder section for any other technical or general observations specific to the repository. If none, please remove the section>
-
- ## Open Issues
-
- <Placeholder section for any known open issues (some test known to not work or is flaky). If none, please remove the section>
