@@ -20,8 +20,12 @@ Start single Test
 
 
     ${application_endpoint}=    Set Variable     ${json_object2['application_endpoint']}
-    ${user}=    Set Variable     ${json_object2['user']}
-    ${access_key}=    Set Variable     ${json_object2['key']}
+
+    ${username_status}    Run Keyword And Return Status    Get Environment Variable    BROWSERSTACK_USERNAME
+    ${acess_key_status}    Run Keyword And Return Status    Get Environment Variable    BROWSERSTACK_ACCESS_KEY
+
+    ${user}=      Set Variable If    """${username_status}""" == 'True'    %{BROWSERSTACK_USERNAME}    ${json_object2['user']} 
+    ${access_key}=      Set Variable If    """${acess_key_status}""" == 'True'    %{BROWSERSTACK_ACCESS_KEY}    ${json_object2['key']} 
 
     ${caps}=    get_caps_single    ${caps_path}
 
@@ -36,8 +40,13 @@ Start local Test
 
 
     ${application_endpoint}=    Set Variable     ${json_object2['tests']['local']['application_endpoint']}
-    ${user}=    Set Variable     ${json_object2['user']}
-    ${access_key}=    Set Variable     ${json_object2['key']}
+
+    ${username_status}    Run Keyword And Return Status    Get Environment Variable    BROWSERSTACK_USERNAME
+    ${acess_key_status}    Run Keyword And Return Status    Get Environment Variable    BROWSERSTACK_ACCESS_KEY
+
+    ${user}=      Set Variable If    """${username_status}""" == 'True'    %{BROWSERSTACK_USERNAME}    ${json_object2['user']} 
+    ${access_key}=      Set Variable If    """${acess_key_status}""" == 'True'    %{BROWSERSTACK_ACCESS_KEY}    ${json_object2['key']} 
+
 
     ${caps}=    get_caps_local    ${caps_path}
 
