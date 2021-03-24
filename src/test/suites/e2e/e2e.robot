@@ -18,11 +18,9 @@ E2E Test
 
     Start Test  ${testType}
 
-    Run Keyword If    '${testType}'=='single'    Rename Session  E2E    ELSE IF    '${testType}'=='local'    Rename Session  E2E
+    Run Keyword If    '${testType}'=='bstack-single'    Rename Session  E2E    ELSE IF    '${testType}'=='bstack-local'    Rename Session  E2E
 
     Login From CSV    fav_user
-
-
 
     Wait Until Element Is Visible   xpath=//p[text() = 'iPhone 12']/../div[@class = 'shelf-item__buy-btn']
     Click Element    xpath=//p[text() = 'iPhone 12']/../div[@class = 'shelf-item__buy-btn']
@@ -47,7 +45,7 @@ E2E Test
 
     Item In Orders Should Be Equal To   3
 
-    Run Keyword If    '${testType}'=='single'    Mark Test Pass    ELSE IF    '${testType}'=='local'    Mark Test Pass
+    Run Keyword If    '${testType}'=='bstack-single'    Mark Test Pass    ELSE IF    '${testType}'=='bstack-local'    Mark Test Pass
 
     Sleep   3
 

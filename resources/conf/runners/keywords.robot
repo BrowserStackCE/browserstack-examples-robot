@@ -8,9 +8,9 @@ ${caps_path}     ${CURDIR}/../../../../browserstack-examples-robot/resources/con
 *** Keywords ***
 Start Test
     [Arguments]   ${testType}
-    # Run Keyword If  '${testType}'=='single'    Start single Test    ELSE    Start local Test
+    # Run Keyword If  '${testType}'=='bstack-single'    Start single Test    ELSE    Start local Test
 
-    Run Keyword If    '${testType}'=='single'    Start single Test    ELSE IF    '${testType}'=='local'    Start local Test        ELSE IF    '${testType}'=='docker'    Start docker Test    ELSE    Start prem Test
+    Run Keyword If    '${testType}'=='bstack-single'    Start single Test    ELSE IF    '${testType}'=='bstack-local'    Start local Test        ELSE IF    '${testType}'=='docker'    Start docker Test    ELSE    Start prem Test
 
 
 Start single Test
@@ -85,7 +85,7 @@ Start docker Test
 
 Stop Test
     [Arguments]   ${testType}
-    Run Keyword If  '${testType}'=='local'    stop_local
+    Run Keyword If  '${testType}'=='bstack-local'    stop_local
     Close Browser
 
 

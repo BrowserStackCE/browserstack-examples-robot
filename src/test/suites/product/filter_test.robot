@@ -18,13 +18,13 @@ Apply 'Lowest to Highest' Order By Filter
 
     Start Test  ${testType}
 
-    Run Keyword If    '${testType}'=='single'    Rename Session  Apply Filter    ELSE IF    '${testType}'=='local'    Rename Session  Apply Filter
+    Run Keyword If    '${testType}'=='bstack-single'    Rename Session  Apply Filter    ELSE IF    '${testType}'=='bstack-local'    Rename Session  Apply Filter
 
     Select Lowest To Highest Filter
 
     Check If Product Sorted
 
-    Run Keyword If    '${testType}'=='single'    Mark Test Pass    ELSE IF    '${testType}'=='local'    Mark Test Pass
+    Run Keyword If    '${testType}'=='bstack-single'    Mark Test Pass    ELSE IF    '${testType}'=='bstack-local'    Mark Test Pass
 
     Sleep   2
     [Teardown]   Stop Test  ${testType}
@@ -34,7 +34,7 @@ Apply Apple And Samsung Filter
 
     Start Test  ${testType}
 
-    Run Keyword If    '${testType}'=='single'    Rename Session  Apply Filter    ELSE IF    '${testType}'=='local'    Rename Session  Apply Filter
+    Run Keyword If    '${testType}'=='bstack-single'    Rename Session  Apply Filter    ELSE IF    '${testType}'=='bstack-local'    Rename Session  Apply Filter
 
     ${total_elements_before}=  Get Total Products
 
@@ -43,7 +43,7 @@ Apply Apple And Samsung Filter
 
     Check If Total Product Changed  ${total_elements_before}
 
-    Run Keyword If    '${testType}'=='single'    Mark Test Pass    ELSE IF    '${testType}'=='local'    Mark Test Pass
+    Run Keyword If    '${testType}'=='bstack-single'    Mark Test Pass    ELSE IF    '${testType}'=='bstack-local'    Mark Test Pass
 
     Sleep   3
     [Teardown]   Stop Test  ${testType}

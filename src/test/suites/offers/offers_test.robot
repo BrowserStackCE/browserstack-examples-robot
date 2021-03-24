@@ -17,7 +17,7 @@ Set GPS location to Mumbai and check offers
 
     keywords.Start Test  ${testType}
 
-    Run Keyword If    '${testType}'=='single'    Rename Session  Check Offers Test    ELSE IF    '${testType}'=='local'    Rename Session  Check Offers Test
+    Run Keyword If    '${testType}'=='bstack-single'    Rename Session  Check Offers Test    ELSE IF    '${testType}'=='bstack-local'    Rename Session  Check Offers Test
 
     Set Location    19.043192    72.86305240000002
 
@@ -27,7 +27,7 @@ Set GPS location to Mumbai and check offers
 
     Confirm Offers Greater Than Zero
 
-    Run Keyword If    '${testType}'=='single'    Mark Test Pass    ELSE IF    '${testType}'=='local'    Mark Test Pass
+    Run Keyword If    '${testType}'=='bstack-single'    Mark Test Pass    ELSE IF    '${testType}'=='bstack-local'    Mark Test Pass
 
     Sleep   3
     [Teardown]   Stop Test  ${testType}
