@@ -157,7 +157,7 @@ Note: The ChromeDriver version must match the Chrome browser version on your mac
 
   where,  the argument 'test-name' can be any RobotFramework scenario name configured in this repository.
   
-  E.g. "Login as username", "Login as Locked User", "Offers for mumbai geo-location" or any of the other test scenario names, as outlined in [About the tests in this repository](#About-the-tests-in-this-repository) section.
+  E.g. "Check Login with locked_user", "E2E Test", "Apply 'Lowest to Highest' Order By Filter" or any of the other test scenario names, as outlined in [About the tests in this repository](#About-the-tests-in-this-repository) section.
 
 - Output
 
@@ -214,7 +214,7 @@ Note: The ChromeDriver version must match the Chrome browser version on your mac
   
   where,  the argument 'test-name' can be any Cucumber scenario name configured in this repository.
   
-  E.g. "Login as username", "Login as Locked User", "Offers for mumbai geo-location" or any of the other test scenario names, as outlined in [About the tests in this repository](#About-the-tests-in-this-repository) section.
+  E.g. "Check Login with locked_user", "E2E Test", "Apply 'Lowest to Highest' Order By Filter" or any of the other test scenario names, as outlined in [About the tests in this repository](#About-the-tests-in-this-repository) section.
 
 
   - After tests are complete, you can stop the Docker by running the following command:
@@ -306,7 +306,7 @@ In this section, we will run a single test on Chrome browser on Browserstack. To
 
   where,  the argument 'test-name' can be any Cucumber scenario name configured in this repository.
   
-  E.g. "Login as username", "Login as Locked User", "Offers for mumbai geo-location" or any of the other test scenario names, as outlined in [About the tests in this repository](#About-the-tests-in-this-repository) section.
+  E.g. "Check Login with locked_user", "E2E Test", "Apply 'Lowest to Highest' Order By Filter" or any of the other test scenario names, as outlined in [About the tests in this repository](#About-the-tests-in-this-repository) section.
 
 
 - Output
@@ -383,7 +383,7 @@ In this section, we will run the tests in parallel on multiple browsers on Brows
   
   where,  the argument 'test-name' can be any Cucumber scenario name configured in this repository.
   
-  E.g. "Login as username", "Login as Locked User", "Offers for mumbai geo-location" or any of the other test scenario names, as outlined in [About the tests in this repository](#About-the-tests-in-this-repository) section.
+  E.g. "Check Login with locked_user", "E2E Test", "Apply 'Lowest to Highest' Order By Filter" or any of the other test scenario names, as outlined in [About the tests in this repository](#About-the-tests-in-this-repository) section.
 
 
 - Output
