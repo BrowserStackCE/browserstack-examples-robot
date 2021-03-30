@@ -41,7 +41,7 @@ Check Order in existing_orders_user
     [Teardown]   Stop Test  ${testType}
 
 # Test Case 7
-Add fav and check fav Count
+Add fav and check fav count
 
     Start Test  ${testType}
 
