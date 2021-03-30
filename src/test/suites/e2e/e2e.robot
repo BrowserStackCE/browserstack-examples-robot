@@ -35,10 +35,8 @@ E2E Test
     Wait Until Element Is Visible   class=float-cart__close-btn
     Click Element   class=buy-btn
 
-
     Perform Order Checkout
 
-    
     Continue Shopping
 
     Click On Orders

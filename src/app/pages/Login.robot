@@ -12,7 +12,6 @@ Login
 
     Wait Until Element Is Visible   id=username
     Press Keys    id=username    ${username}
-    Sleep    1
     Press Keys    None    ENTER
     Press Keys    id=password    ${password}
     Press Keys    None    ENTER
@@ -26,7 +25,6 @@ Login From CSV
 
     Wait Until Element Is Visible   id=username
     Press Keys    id=username    ${username}
-    Sleep    1
     Press Keys    None    ENTER
 
     ${password}=    keywords.Get Password From CSV  ${username}
