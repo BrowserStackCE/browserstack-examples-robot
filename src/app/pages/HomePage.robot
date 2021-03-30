@@ -21,17 +21,15 @@ Check If Username Is
     Wait Until Element Is Visible   class=username
     Element Text Should Be    class=username    ${username}
 
-    # Wait Until Element Is Visible   class=order
 
 Select Lowest To Highest Filter
     Wait Until Element Is Visible   class=sort
     Click Element   class=sort
 
-    Click Element   xpath=//*[@id="__next"]/div/div/main/div[2]/div[1]/div[1]/select/option[2]
+    Click Element   css= option[value='lowestprice']
 
 Check If Product Sorted
     Wait Until Element Is Visible   class=val
-    ${prices}=  Get Text  class=val
 
     Element Text Should Be  class=val   $399.00
 
@@ -49,3 +47,4 @@ Select Filter
 Check If Total Product Changed
     [Arguments]   ${total_elements_before}
     Element Text Should Not Be   class=products-found   ${total_elements_before}
+

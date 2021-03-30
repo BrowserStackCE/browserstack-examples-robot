@@ -9,7 +9,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 
 
-bs_local = 0
+bstack_local = 0
 
 def combine_dict(dict1, dict2):
     dict_1 = json.loads(str(dict1))
@@ -48,21 +48,21 @@ def get_caps_local(caps_path):
 
 def start_local(key):
 
-    global bs_local
-    bs_local = Local()
+    global bstack_local
+    bstack_local = Local()
 
 
-    bs_local_args = { "key": key }
+    bstack_local_args = { "key": key }
 
-    bs_local.start(**bs_local_args)
+    bstack_local.start(**bstack_local_args)
 
-    return bs_local
+    return bstack_local
 
 def stop_local():
 
-    global bs_local
+    global bstack_local
 
-    bs_local.stop()
+    bstack_local.stop()
 
 
 def get_password(username):
@@ -75,7 +75,6 @@ def get_password(username):
 
     with open(filename,'r') as data: 
         for line in csv.reader(data): 
-                    # print(line)
                     if line[0] == username:
                         return line[1]
 
@@ -83,7 +82,6 @@ def get_password(username):
 def set_loc(lat, long):
 
     se2lib = BuiltIn().get_library_instance('SeleniumLibrary')
-    # se2lib.driver.execute_script('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed","reason": "Oops! my sample test failed"}}')
 
 
     se2lib.driver.execute_script(
@@ -101,6 +99,14 @@ def mark_fail():
     se2lib = BuiltIn().get_library_instance('SeleniumLibrary')
     se2lib.driver.execute_script('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed","reason": "Oops! my sample test failed"}}')
 
+
+def mark_test_session(result):
+    se2lib = BuiltIn().get_library_instance('SeleniumLibrary')
+    if result == 'PASS':
+        se2lib.driver.execute_script('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed","reason": "Test Ran Succesfully"}}')
+    else:
+        se2lib.driver.execute_script('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed","reason": "Oops! my sample test failed"}}')
+       
 
 def set_session_name(new_name):
     se2lib = BuiltIn().get_library_instance('SeleniumLibrary')

@@ -2,7 +2,7 @@
 Library  SeleniumLibrary
 
 *** Keywords ***
-Checkout With Dummy Data
+Perform Order Checkout
 
     Wait Until Element Is Visible   id=firstNameInput
     Input Text  id=firstNameInput   firstname

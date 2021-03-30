@@ -24,9 +24,6 @@ Check Login with image_not_loading_user
 
     Check If Username Is    image_not_loading_user
 
-    Mark Test Pass
-
-    Sleep   3
     [Teardown]   Stop Test  ${testType}
 
 # Test Case 6
@@ -41,9 +38,6 @@ Check Order in existing_orders_user
     Click On Orders
     Confirm Order Greater Than Zero
 
-    Mark Test Pass
-
-    Sleep   3
     [Teardown]   Stop Test  ${testType}
 
 # Test Case 7
@@ -61,8 +55,5 @@ Add fav and check fav Count
 
     Favourites.Confirm Favourites Greater Than Zero
 
-    Run Keyword If    '${testType}'=='bstack-single'    Mark Test Pass    ELSE IF    '${testType}'=='bstack-local'    Mark Test Pass
-
-    Sleep   3
     [Teardown]   Stop Test  ${testType}
 

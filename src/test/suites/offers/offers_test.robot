@@ -27,8 +27,5 @@ Set GPS location to Mumbai and check offers
 
     Confirm Offers Greater Than Zero
 
-    Run Keyword If    '${testType}'=='bstack-single'    Mark Test Pass    ELSE IF    '${testType}'=='bstack-local'    Mark Test Pass
-
-    Sleep   3
     [Teardown]   Stop Test  ${testType}
 

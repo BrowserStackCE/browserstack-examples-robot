@@ -24,9 +24,6 @@ Apply 'Lowest to Highest' Order By Filter
 
     Check If Product Sorted
 
-    Run Keyword If    '${testType}'=='bstack-single'    Mark Test Pass    ELSE IF    '${testType}'=='bstack-local'    Mark Test Pass
-
-    Sleep   2
     [Teardown]   Stop Test  ${testType}
 
 # Test Case 2
@@ -43,7 +40,4 @@ Apply Apple And Samsung Filter
 
     Check If Total Product Changed  ${total_elements_before}
 
-    Run Keyword If    '${testType}'=='bstack-single'    Mark Test Pass    ELSE IF    '${testType}'=='bstack-local'    Mark Test Pass
-
-    Sleep   3
     [Teardown]   Stop Test  ${testType}

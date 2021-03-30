@@ -14,7 +14,7 @@ Resource  ${CURDIR}/../../../app/pages/Favourites.robot
 
 *** Test Cases ***
 #Test Case 3
-Check if Signin opens on clicking on favourites nav item 
+Check if Signin opens on clicking on favourites nav item
 
     Start Test  ${testType}
 
@@ -22,13 +22,7 @@ Check if Signin opens on clicking on favourites nav item
 
     Click On Favourites
 
-    Sleep   1
-
     On Signin Page
-
-    Run Keyword If    '${testType}'=='bstack-single'    Mark Test Pass    ELSE IF    '${testType}'=='bstack-local'    Mark Test Pass
-
-    Sleep    3   
 
     [Teardown]   Stop Test  ${testType}
 
@@ -44,7 +38,4 @@ Check Login with locked_user
     
     Confirm Locked User Error
 
-    Run Keyword If    '${testType}'=='bstack-single'    Mark Test Pass    ELSE IF    '${testType}'=='bstack-local'    Mark Test Pass
-
-    Sleep    3
     [Teardown]   Stop Test  ${testType}

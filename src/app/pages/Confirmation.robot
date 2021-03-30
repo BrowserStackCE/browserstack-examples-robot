@@ -9,7 +9,8 @@ Item In Orders Should Be Equal To
     Should Be True  ${orders_items} == ${orders_item_arg}
 
 On Signin Page
-    Location Should Contain   https://bstackdemo.com/signin
+    Wait Until Element Is Visible    id=username
+    Location Should Contain   /signin
 
 Confirm Locked User Error
     Element Text Should Be  class=api-error    Your account has been locked.

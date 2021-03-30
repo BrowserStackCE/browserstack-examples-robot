@@ -8,9 +8,8 @@ ${caps_path}     ${CURDIR}/../../../../browserstack-examples-robot/resources/con
 *** Keywords ***
 Start Test
     [Arguments]   ${testType}
-    # Run Keyword If  '${testType}'=='bstack-single'    Start single Test    ELSE    Start local Test
 
-    Run Keyword If    '${testType}'=='bstack-single'    Start single Test    ELSE IF    '${testType}'=='bstack-local'    Start local Test        ELSE IF    '${testType}'=='docker'    Start docker Test    ELSE    Start prem Test
+    Run Keyword If    '${testType}'=='bstack-single'    Start single Test    ELSE IF    '${testType}'=='bstack-local'    Start local Test        ELSE IF    '${testType}'=='docker'    Start docker Test    ELSE    Start onprem Test
 
 
 Start single Test
@@ -30,9 +29,7 @@ Start single Test
     ${caps}=    get_caps_single    ${caps_path}
 
     Open Browser    ${application_endpoint}    remote_url=http://${user}:${access_key}@hub-cloud.browserstack.com/wd/hub    desired_capabilities=${caps}
-    # Open Browser    ${application_endpoint}    Firefox    remote_url=http://localhost:4444/wd/hub
 
-# http://selenium_hub:4444/wd/hub
 Start local Test
 
     ${json2}=    Get file    ${caps_path}
@@ -54,13 +51,12 @@ Start local Test
 
     Open Browser    ${application_endpoint}    remote_url=http://${user}:${access_key}@hub-cloud.browserstack.com/wd/hub    desired_capabilities=${caps}
 
-    # [return]  ${local_instance}
 
 Stop Local Test
     stop_local
 
 
-Start prem Test
+Start onprem Test
 
     ${json2}=    Get file    ${caps_path}
     ${json_object2}=    Evaluate    json.loads('''${json2}''')    json
@@ -80,11 +76,18 @@ Start docker Test
 
     ${application_endpoint}=    Set Variable     ${json_object2['application_endpoint']}
 
-    Open Browser    ${application_endpoint}    chrome    remote_url=http://localhost:4444/wd/hub
+    ${docker_remote_url}=    http://localhost:4444/wd/hub
+    
+    Open Browser    ${application_endpoint}    chrome    remote_url=${docker_remote_url}
 
 
 Stop Test
     [Arguments]   ${testType}
+
+    Log   ${TEST_STATUS}
+    
+    Run Keyword If    '${testType}'=='bstack-single'    Mark Test Status   ${TEST_STATUS}    ELSE IF    '${testType}'=='bstack-local'    Mark Test Status   ${TEST_STATUS}
+
     Run Keyword If  '${testType}'=='bstack-local'    stop_local
     Close Browser
 
@@ -99,10 +102,15 @@ Set Location
         set_loc   ${lat}    ${long}
 
 Mark Test Pass
-        mark_pass
+    mark_pass
 
 Mark Test Fail
-        mark_fail
+    mark_fail
+
+Mark Test Status
+    [Arguments]   ${status}
+    mark_test_session   ${status}
+
 
 Rename Session
     [Arguments]   ${new_name}

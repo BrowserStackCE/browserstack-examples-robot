@@ -36,7 +36,7 @@ E2E Test
     Click Element   class=buy-btn
 
 
-    Checkout With Dummy Data
+    Perform Order Checkout
 
     
     Continue Shopping
@@ -44,10 +44,6 @@ E2E Test
     Click On Orders
 
     Item In Orders Should Be Equal To   3
-
-    Run Keyword If    '${testType}'=='bstack-single'    Mark Test Pass    ELSE IF    '${testType}'=='bstack-local'    Mark Test Pass
-
-    Sleep   3
 
     [Teardown]   Stop Test  ${testType}
 
