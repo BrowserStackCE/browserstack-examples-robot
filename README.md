@@ -108,27 +108,17 @@ The Selenium test tests are run on different platforms like on-prem, docker and 
 - [BrowserStack](#browserstack)
 
 
-<!-- ## Configuring the maximum parallel test threads for this repository
+## Configuring the maximum parallel test threads for this repository
 
-  For all the parallel run configuration profiles, you can configure the maximum parallel test threads by changing the ettings below.
+  For all the parallel run configuration profiles, you can configure the maximum parallel test threads by changing the settings below.
 
-  - Docker
+  - Docker / BrowserStack
 
-    [File name / path]
-    [Configuration attribute] = [Configuration value]
+    While running any of the below tests in parallel, set the maximum parallel thread using the pabot argument as below:
+
+    `pabot --processes <count_of_parallels> <name_of_suites_to_run>`
   
-  - BrowserStack
-    
-    Maven:
-
-    [File name / path]
-    [Configuration attribute] = [Configuration value]
-
-    Gradle:
-
-    [File name / path]
-    [Configuration attribute] = [Configuration value] -->
-
+  
 ## Test Reporting
 
 - [Allure reports](#generating-allure-reports)
