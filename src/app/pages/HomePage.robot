@@ -34,14 +34,14 @@ Check If Product Sorted
     Element Text Should Be  class=val   $399.00
 
 Get Total Products
-    Wait Until Element Is Visible   xpath=//span[contains(text(), 'Apple')]
+    Wait Until Element Is Visible   css=input[value='Apple'] + span
     ${total_elements}=  Get Text  class=products-found
 
     [return]  ${total_elements}
 
 Select Filter
     [Arguments]   ${filter}
-    Click Element   xpath=//span[contains(text(), '${filter}')]
+    Click Element   css=input[value='${filter}'] + span
 
 
 Check If Total Product Changed
