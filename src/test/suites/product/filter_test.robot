@@ -18,7 +18,7 @@ Apply 'Lowest to Highest' Order By Filter
 
     Start Test  ${testType}
 
-    Run Keyword If    '${testType}'=='bstack-single'    Rename Session  Apply Filter    ELSE IF    '${testType}'=='bstack-local'    Rename Session  Apply Filter
+    Only Run On Browserstack    Rename Session  Apply Filter
 
     Select Lowest To Highest Filter
 
@@ -31,7 +31,7 @@ Apply Apple And Samsung Filter
 
     Start Test  ${testType}
 
-    Run Keyword If    '${testType}'=='bstack-single'    Rename Session  Apply Filter    ELSE IF    '${testType}'=='bstack-local'    Rename Session  Apply Filter
+    Only Run On Browserstack    Rename Session  Apply Filter
 
     ${total_elements_before}=  Get Total Products
 

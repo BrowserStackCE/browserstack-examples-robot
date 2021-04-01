@@ -18,8 +18,8 @@ Check if Signin opens on clicking on favourites nav item
 
     Start Test  ${testType}
 
-    Run Keyword If    '${testType}'=='bstack-single'    Rename Session  Check Fav Nav    ELSE IF    '${testType}'=='bstack-local'    Rename Session  Check Fav Nav
-
+    Only Run On Browserstack    Rename Session  Check Signin
+    
     Click On Favourites
 
     On Signin Page
@@ -32,7 +32,7 @@ Check Login with locked_user
 
     Start Test  ${testType}
 
-    Run Keyword If    '${testType}'=='bstack-single'    Rename Session  Check locked_user    ELSE IF    '${testType}'=='bstack-local'    Rename Session  Check locked_user
+    Only Run On Browserstack    Rename Session  Check locked_user
 
     Login.Login  locked_user  testingisfun99
     

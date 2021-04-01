@@ -21,7 +21,7 @@ def combine_dict(dict1, dict2):
     return dict_1
 
 
-def get_caps_single(caps_path):
+def get_caps_single(caps_path, username, access):
 
     with open(caps_path) as f:
         data = json.load(f)
@@ -30,11 +30,12 @@ def get_caps_single(caps_path):
     single_caps_env = data['tests']['single']['env_caps'][0]
 
     single_caps_common.update(single_caps_env)
-
+    single_caps_common['browserstack.user'] = username
+    single_caps_common['browserstack.key'] = access
 
     return single_caps_common
 
-def get_caps_local(caps_path):
+def get_caps_local(caps_path, username,access):
 
     with open(caps_path) as f:
         data = json.load(f)
@@ -43,6 +44,8 @@ def get_caps_local(caps_path):
     caps_env = data['tests']['local']['env_caps'][0]
 
     caps_common.update(caps_env)
+    caps_common['browserstack.user'] = username
+    caps_common['browserstack.key'] = access
 
 
     return caps_common
@@ -66,19 +69,38 @@ def stop_local():
     bstack_local.stop()
 
 
-def get_password(username):
+def get_row_item_from_file(filepath, key):
 
     dirname = os.path.dirname(__file__)
-
-    filename = os.path.normpath(os.path.join(dirname, '../../data/user.csv'))
-
-    print(filename)
+    filename = os.path.normpath(os.path.join(dirname, filepath))
 
     with open(filename,'r') as data: 
         for line in csv.reader(data): 
-                    if line[0] == username:
+                    if line[0] == key:
                         return line[1]
 
+
+def get_password(username):
+
+    password = get_row_item_from_file('../../data/user.csv', username)
+    return password
+
+def get_product_prices():
+    dirname = os.path.dirname(__file__)
+    filename = os.path.normpath(os.path.join(dirname, '../../data/product.csv'))
+
+    prices = []
+    with open(filename,'r') as data:
+        for line in csv.reader(data):
+            if line[3] != 'price':
+                prices.append(int(line[3]))
+
+    prices = sorted(prices)
+
+    for i in range(0, len(prices)):
+        prices[i] = str('$' + str(prices[i]) + '.00')
+
+    return prices
 
 def set_loc(lat, long):
 

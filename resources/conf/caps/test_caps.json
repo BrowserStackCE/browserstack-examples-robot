@@ -88,12 +88,7 @@
             "os_version": "10",
             "browser": "Chrome"
           }
-        ],
-        "local_binding_caps": {
-          "forceLocal": "true",
-          "verbose": "true",
-          "logFile": "local_test.log"
-        }
+        ]
       },
       "mobile": {
         "common_caps": {

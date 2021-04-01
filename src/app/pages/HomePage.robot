@@ -31,7 +31,18 @@ Select Lowest To Highest Filter
 Check If Product Sorted
     Wait Until Element Is Visible   class=val
 
-    Element Text Should Be  class=val   $399.00
+    @{elem} =   Get WebElements     class=val
+
+    @{HOMEPAGE_PRICE_LIST}=  Create List
+
+    FOR  ${item}  IN  @{elem}
+        ${text}=    Get Text    ${item}
+        Append To List  ${HOMEPAGE_PRICE_LIST}    ${text}
+    END
+
+    ${prices}=    Get Product Prices From CSV
+
+    Lists Should Be Equal   ${HOMEPAGE_PRICE_LIST}   ${prices}
 
 Get Total Products
     Wait Until Element Is Visible   css=input[value='Apple'] + span

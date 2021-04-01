@@ -26,9 +26,9 @@ Start single Test
     ${user}=      Set Variable If    """${username_status}""" == 'True'    %{BROWSERSTACK_USERNAME}    ${json_object2['user']} 
     ${access_key}=      Set Variable If    """${acess_key_status}""" == 'True'    %{BROWSERSTACK_ACCESS_KEY}    ${json_object2['key']} 
 
-    ${caps}=    get_caps_single    ${caps_path}
+    ${caps}=    get_caps_single    ${caps_path}    ${user}    ${access_key}
 
-    Open Browser    ${application_endpoint}    remote_url=http://${user}:${access_key}@hub-cloud.browserstack.com/wd/hub    desired_capabilities=${caps}
+    Open Browser    ${application_endpoint}    remote_url=http://hub-cloud.browserstack.com/wd/hub    desired_capabilities=${caps}
 
 Start local Test
 
@@ -45,7 +45,8 @@ Start local Test
     ${access_key}=      Set Variable If    """${acess_key_status}""" == 'True'    %{BROWSERSTACK_ACCESS_KEY}    ${json_object2['key']} 
 
 
-    ${caps}=    get_caps_local    ${caps_path}
+    ${caps}=    get_caps_local    ${caps_path}    ${user}    ${access_key}
+
 
     ${local_instance}=    start_local    ${access_key}
 
@@ -84,13 +85,10 @@ Start docker Test
 Stop Test
     [Arguments]   ${testType}
 
-    Log   ${TEST_STATUS}
-    
-    Run Keyword If    '${testType}'=='bstack-single'    Mark Test Status   ${TEST_STATUS}    ELSE IF    '${testType}'=='bstack-local'    Mark Test Status   ${TEST_STATUS}
-
+    # Run Keyword If    '${testType}'=='bstack-single'    Mark Test Status   ${TEST_STATUS}    ELSE IF    '${testType}'=='bstack-local'    Mark Test Status   ${TEST_STATUS}
+    Only Run On Browserstack    Mark Test Status   ${TEST_STATUS}
     Run Keyword If  '${testType}'=='bstack-local'    stop_local
     Close Browser
-
 
 Get Password From CSV
     [Arguments]   ${username}
@@ -110,3 +108,11 @@ Mark Test Status
 Rename Session
     [Arguments]   ${new_name}
     set_session_name    ${new_name}
+
+Only Run On Browserstack
+    [Arguments]   ${keyword}    ${param}
+    Run Keyword If    '${testType}'=='bstack-single'    ${keyword}  ${param}    ELSE IF    '${testType}'=='bstack-local'    ${keyword}  ${param}
+
+Get Product Prices From CSV
+    ${prices}=    get_product_prices
+    [return]  ${prices}

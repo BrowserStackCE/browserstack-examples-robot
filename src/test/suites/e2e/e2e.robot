@@ -18,7 +18,7 @@ E2E Test
 
     Start Test  ${testType}
 
-    Run Keyword If    '${testType}'=='bstack-single'    Rename Session  E2E    ELSE IF    '${testType}'=='bstack-local'    Rename Session  E2E
+    Only Run On Browserstack    Rename Session  E2E
 
     Login From CSV    fav_user
 

@@ -17,7 +17,7 @@ Set GPS location to Mumbai and check offers
 
     keywords.Start Test  ${testType}
 
-    Run Keyword If    '${testType}'=='bstack-single'    Rename Session  Check Offers Test    ELSE IF    '${testType}'=='bstack-local'    Rename Session  Check Offers Test
+    Only Run On Browserstack    Rename Session  Check Offers Test
 
     Set Location    19.043192    72.86305240000002
 

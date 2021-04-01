@@ -18,8 +18,8 @@ Check Login with image_not_loading_user
 
     Start Test  ${testType}
 
-    Run Keyword If    '${testType}'=='bstack-single'    Rename Session  Check image_not_loading_user    ELSE IF    '${testType}'=='bstack-local'    Rename Session  Check image_not_loading_user
-
+    Only Run On Browserstack    Rename Session  Check image_not_loading_user
+    
     Login.Login  image_not_loading_user  testingisfun99
 
     Check If Username Is    image_not_loading_user
@@ -31,7 +31,7 @@ Check Order in existing_orders_user
 
     Start Test  ${testType}
 
-    Run Keyword If    '${testType}'=='bstack-single'    Rename Session  Check existing_orders_user    ELSE IF    '${testType}'=='bstack-local'    Rename Session  Check existing_orders_user
+    Only Run On Browserstack    Rename Session  Check existing_orders_user
 
     Login.Login  existing_orders_user  testingisfun99
 
@@ -45,8 +45,8 @@ Add fav and check fav count
 
     Start Test  ${testType}
 
-    Run Keyword If    '${testType}'=='bstack-single'    Rename Session  Check Fav    ELSE IF    '${testType}'=='bstack-local'    Rename Session  Check Fav
-
+    Only Run On Browserstack    Rename Session  Check Fav
+    
     Login.Login  existing_orders_user  testingisfun99
 
     Favourites.Add Item To Fav
