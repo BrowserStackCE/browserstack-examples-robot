@@ -31,7 +31,7 @@ E2E Test
     Wait Until Element Is Visible    class=float-cart__close-btn
     Click Element                    class=float-cart__close-btn
 
-    Click Element                    css=div[id="7"]>div[class="shelf-item__buy-btn"]
+    Click Element                    css=div[id="10"]>div[class="shelf-item__buy-btn"]
     Wait Until Element Is Visible    class=float-cart__close-btn
     Click Element                    class=buy-btn
 
