@@ -2,63 +2,6 @@
 
 # BrowserStack Examples Robot Framework <a href="https://robotframework.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Robot-framework-logo.png" alt="Robot" height="30" /></a> <a href="https://www.python.org//"><img src="https://www.python.org/static/img/python-logo@2x.png" alt="python" height="22" /></a>
 
-
-<!-- ## Commands to run the tests [Temporary: For Reviewer purpose only]
-
-Install all required libraries:
-`pip install -r requirements.txt`
-
-## To run the tests on Browserstack [Temporary: For Reviewer purpose only]
-
-1. `robot --variable testType:single --suite e2e .` - Run e2e test suite
-2. `robot --variable testType:single --suite offers .` - Run offers test suite
-3. `robot --variable testType:single --suite user .` - Run user test suite
-4. `robot --variable testType:single --suite login .` - Run login test suite
-5. `robot --variable testType:single --suite product .` - Run product test suite
-6. `robot --variable testType:single --suite offers .` - Run product test suite
-
-## To run the test cases in each test suite parallely on Browserstack [Temporary: For Reviewer purpose only]
-1. `pabot --testlevelsplit --variable testType:single --suite e2e .` - Run e2e test suite
-2. `pabot --testlevelsplit --variable testType:single --suite offers .` - Run offers test suite
-3. `pabot --testlevelsplit --variable testType:single --suite user .` - Run user test suite
-4. `pabot --testlevelsplit --variable testType:single --suite login .` - Run login test suite
-5. `pabot --testlevelsplit --variable testType:single --suite product .` - Run product test suite
-6. `pabot --testlevelsplit --variable testType:single --suite offers .` - Run product test suite
-
-## To run on prem [Temporary: For Reviewer purpose only]
-1. `robot --variable testType:prem --suite e2e .` - Run e2e test suite
-2. `robot --variable testType:prem --suite offers .` - Run offers test suite
-3. `robot --variable testType:prem --suite user .` - Run user test suite
-4. `robot --variable testType:prem --suite login .` - Run login test suite
-5. `robot --variable testType:prem --suite product .` - Run product test suite
-6. `robot --variable testType:prem --suite offers .` - Run product test suite
-
-## To run with local testing [Temporary: For Reviewer purpose only]
-1. `robot --variable testType:local --suite e2e .` - Run e2e test suite
-2. `robot --variable testType:local --suite offers .` - Run offers test suite
-3. `robot --variable testType:local --suite user .` - Run user test suite
-4. `robot --variable testType:local --suite login .` - Run login test suite
-5. `robot --variable testType:local --suite product .` - Run product test suite
-6. `robot --variable testType:local --suite offers .` - Run product test suite
-
-## To run on Docker [Temporary: For Reviewer purpose only]
-
-`docker-compose up -d && robot --variable testType:docker --suite offers . && docker-compose down` - Run all test suites on self-hosted docker, change the suite name accordingly
-
-## To generate Reports using Allure [Temporary: For Reviewer purpose only]
-
-`pip install allure-robotframework`
-
-Add  `--listener 'allure_robotframework;./results/allure'` to any test command above.
-
-Example:
-
-`robot --listener 'allure_robotframework;./results/allure' --variable testType:single --suite offers .`
-
- -->
-<!-- # Actual README [WIP] -->
-
-
 ## Introduction
 
 Robot Framework is a generic open source automation framework which can be used for test automation. It is open and extensible and can be integrated with many tools to create powerful and flexible automation solutions.
@@ -89,14 +32,14 @@ The Selenium test tests are run on different platforms like on-prem, docker and 
 
   | Module   | Test name                          | Description |
   | ---   | ---                                   | --- |
-  | E2E      | E2E Test                | This test scenario verifies successful product purchase lifecycle end-to-end. It demonstrates the [Page Object Model design pattern](https://www.browserstack.com/guide/page-object-model-in-selenium) and is also the default test executed in all the single test run profiles. |
-  | Login    | Check if Signin opens on clicking on favourites nav item          | This test verifies the login workflow with different types of valid login users. |
-  | Login    | Check Login with locked_user               | This test verifies the login workflow error for a locked user. |
-  | Offers   | Set GPS location to Mumbai and check offers     | This test mocks the GPS location for Mumbai and verifies that the product offers applicable for the Mumbai location are shown.   |
-  | Product  | Apply Apple And Samsung Filter          | This test verifies that the Apple products are only shown if the Apple vendor filter option is applied. |
-  | Product  | Apply 'Lowest to Highest' Order By Filter   | This test verifies that the product prices are in ascending order when the product sort "Lowest to Highest" is applied. |
-  | User     | Check Login with image_not_loading_user | This test verifies that the product images load for user: "image_not_loading_user" on the e-commerce application. Since the images do not load, the test case assertion fails.|
-  | User     | Check Order in existing_orders_user |  This test verifies that existing orders are shown for user: "existing_orders_user"  |
+  | e2e      | E2E Test                | This test scenario verifies successful product purchase lifecycle end-to-end. It demonstrates the [Page Object Model design pattern](https://www.browserstack.com/guide/page-object-model-in-selenium) and is also the default test executed in all the single test run profiles. |
+  | login    | Check if Signin opens on clicking on favourites nav item          | This test verifies the login workflow with different types of valid login users. |
+  | login    | Check Login with locked_user               | This test verifies the login workflow error for a locked user. |
+  | offers   | Set GPS location to Mumbai and check offers     | This test mocks the GPS location for Mumbai and verifies that the product offers applicable for the Mumbai location are shown.   |
+  | product  | Apply Apple And Samsung Filter          | This test verifies that the Apple products are only shown if the Apple vendor filter option is applied. |
+  | product  | Apply 'Lowest to Highest' Order By Filter   | This test verifies that the product prices are in ascending order when the product sort "Lowest to Highest" is applied. |
+  | user     | Check Login with image_not_loading_user | This test verifies that the product images load for user: "image_not_loading_user" on the e-commerce application. Since the images do not load, the test case assertion fails.|
+  | user     | Check Order in existing_orders_user |  This test verifies that existing orders are shown for user: "existing_orders_user"  |
   
   ---
 
@@ -205,7 +148,7 @@ Note: The ChromeDriver version must match the Chrome browser version on your mac
   ```
 
   
-  where,  the argument 'test-name' can be any Cucumber scenario name configured in this repository.
+  where,  the argument 'test-name' can be any scenario name configured in this repository.
   
   E.g. "Check Login with locked_user", "E2E Test", "Apply 'Lowest to Highest' Order By Filter" or any of the other test scenario names, as outlined in [About the tests in this repository](#About-the-tests-in-this-repository) section.
 
@@ -247,8 +190,6 @@ Note: The ChromeDriver version must match the Chrome browser version on your mac
 
   This run profile executes the entire test suite in parallel on a single browser, deployed on a docker image.
 
-- Note: By default, this execution would run maximum 5 test threads in parallel on Docker. Refer to the section ["Configuring the maximum parallel test threads for this repository"](#Configuring-the-maximum-parallel-test-threads-for-this-repository) for updating the parallel thread count based on your requirements.
-
 ---
 
 # BrowserStack
@@ -274,7 +215,7 @@ Note: The ChromeDriver version must match the Chrome browser version on your mac
   set BROWSERSTACK_ACCESS_KEY=<browserstack-access-key>
   ```
   
-  Alternatively, you can also hardcode username and access_key objects in the [caps.json](resources/conf/caps/caps.json) file.
+  Alternatively, you can also hardcode username and access_key objects in the [test_caps.json](resources/conf/caps/test_caps.json) file.
 
 Note:
 - We have configured a list of test capabilities in the [test_caps.json](resources/conf/caps/test_caps.json) file. You can certainly update them based on your device / browser test requirements. 
@@ -285,7 +226,7 @@ Note:
 
 ### Run a specific test on BrowserStack
 
-In this section, we will run a single test on Chrome browser on Browserstack. To change test capabilities for this configuration, please refer to the `single` object in `caps.json` file.
+In this section, we will run a single test on Chrome browser on Browserstack. To change test capabilities for this configuration, please refer to the `single` object in `test_caps.json` file.
 
 - How to run the test?
   
@@ -297,7 +238,7 @@ In this section, we will run a single test on Chrome browser on Browserstack. To
 
   ```
 
-  where,  the argument 'test-name' can be any Cucumber scenario name configured in this repository.
+  where,  the argument 'test-name' can be any scenario name configured in this repository.
   
   E.g. "Check Login with locked_user", "E2E Test", "Apply 'Lowest to Highest' Order By Filter" or any of the other test scenario names, as outlined in [About the tests in this repository](#About-the-tests-in-this-repository) section.
 
@@ -309,7 +250,7 @@ In this section, we will run a single test on Chrome browser on Browserstack. To
 
 ### Run the entire test suite in parallel on a single BrowserStack browser
 
-In this section, we will run the tests in parallel on a single browser on Browserstack. Refer to `single` object in `caps.json` file to change test capabilities for this configuration.
+In this section, we will run the tests in parallel on a single browser on Browserstack. Refer to `single` object in `test_caps.json` file to change test capabilities for this configuration.
 
 - How to run the test?
 
@@ -327,24 +268,6 @@ In this section, we will run the tests in parallel on a single browser on Browse
 
   - Note: By default, this execution would run maximum 5 test threads in parallel on BrowserStack. Refer to the section ["Configuring the maximum parallel test threads for this repository"](#Configuring-the-maximum-parallel-test-threads-for-this-repository) for updating the parallel thread count based on your requirements.
 
-<!-- 
-### Run the entire test suite in parallel on multiple BrowserStack browsers
-
-In this section, we will run the tests in parallel on multiple browsers on Browserstack. Refer to the `parallel` object in `caps.json` file to change test capabilities for this configuration.
-
-- How to run the test?
-
-  To run the entire test suite in parallel on multiple BrowserStack browsers, use the following command:
-  
-  Maven:
-  ```sh
-  mvn compile exec:java -P bstack-parallel-browsers
-  ```
-
-  Gradle:
-  ```sh
-  <Gradle command>
-  ``` -->
 
 ### [Web application hosted on internal environment] Running your tests on BrowserStack using BrowserStackLocal
 
@@ -360,7 +283,7 @@ In this section, we will run the tests in parallel on multiple browsers on Brows
 - Further details for successfully creating a BrowserStackLocal connection can be found here:
   
   - [Local Testing with Automate](https://www.browserstack.com/local-testing/automate)
-  - [BrowserStackLocal Java GitHub](https://github.com/browserstack/browserstack-local-java)
+  - [BrowserStackLocal Python GitHub](https://github.com/browserstack/browserstack-local-python)
 
 
 ### [Web application hosted on internal environment] Run a specific test on BrowserStack using BrowserStackLocal
@@ -374,7 +297,7 @@ In this section, we will run the tests in parallel on multiple browsers on Brows
 
   ```
   
-  where,  the argument 'test-name' can be any Cucumber scenario name configured in this repository.
+  where,  the argument 'test-name' can be any scenario name configured in this repository.
   
   E.g. "Check Login with locked_user", "E2E Test", "Apply 'Lowest to Highest' Order By Filter" or any of the other test scenario names, as outlined in [About the tests in this repository](#About-the-tests-in-this-repository) section.
 
@@ -399,27 +322,6 @@ In this section, we will run the test cases to test the internally hosted websit
 - Output
 
    This run profile executes the entire test suite on an internally hosted web application on a single browser on BrowserStack. Please refer to your [BrowserStack dashboard](https://automate.browserstack.com/) for test results.
-  
-- Note: By default, this execution would run maximum 5 test threads in parallel on BrowserStack. Refer to the section ["Configuring the maximum parallel test threads for this repository"](#Configuring-the-maximum-parallel-test-threads-for-this-repository) for updating the parallel thread count based on your requirements.
-
-<!-- ### [Web application hosted on internal environment] Run the entire test suite in parallel on multiple BrowserStack browser using BrowserStackLocal
-
-In this section, we will run the test cases to test the internally hosted website in parallel on multiple browsers on Browserstack. Refer to the `parallel_local` object in `caps.json` file to change test capabilities for this configuration.
-
-- How to run the test?
-
-  To run the entire test suite in parallel on a single BrowserStack browser using BrowserStackLocal, use the following command:
-
-  ```sh
-  pabot --testlevelsplit --variable testType:bstack-local --suite <Suite-Name> .
-  ```
- -->
-
-- Output
-
-  This run profile executes the entire test suite on an internally hosted web application on multiple browsers on BrowserStack. Please refer to your [BrowserStack dashboard](https://automate.browserstack.com/) for test results.
-
-- Note: By default, this execution would run maximum 5 test threads in parallel on BrowserStack. Refer to the section ["Configuring the maximum parallel test threads for this repository"](#Configuring-the-maximum-parallel-test-threads-for-this-repository) for updating the parallel thread count based on your requirements.
 
 ## Generating Allure Reports
 
