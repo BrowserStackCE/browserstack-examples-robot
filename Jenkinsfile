@@ -52,6 +52,7 @@ bstack-local''',
 		stage('Run Test(s)') {
 			browserstack(credentialsId: "${params.BROWSERSTACK_USERNAME}") {
 				sh '''
+					cd src/test/suites
 					python3 -m robot --variable testType:${TEST_TYPE} .
 				'''
 			}
