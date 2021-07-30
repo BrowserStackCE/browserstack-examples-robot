@@ -16,7 +16,7 @@ bstack-local''',
 				],
 				description: 'Select the test you would like to run',
 				editable: false,
-				name: 'testType']
+				name: 'TEST_TYPE']
 			])
 		])
 
