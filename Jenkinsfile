@@ -43,8 +43,9 @@ bstack-local''',
 
 		stage('Install Dependencies'){
 			sh '''
-				cd test
-				npm install
+				 pip3 install robotframework --user
+				 pip3 install robotframework-seleniumlibrary --user
+				 pip3 install browserstack --user
 			'''
 		}
 
