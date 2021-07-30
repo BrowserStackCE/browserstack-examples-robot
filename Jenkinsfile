@@ -11,15 +11,12 @@ node {
 					addEditedValue: false,
 					choiceListText: '''bstack-single
 bstack-parallel
-bstack-parallel-multiple
-bstack-local
-bstack-local-parallel
-bstack-local-parallel-multiple''',
-					defaultChoice: 'bstack-parallel'
+bstack-local''',
+					defaultChoice: 'bstack-single'
 				],
 				description: 'Select the test you would like to run',
 				editable: false,
-				name: 'TEST_TYPE']
+				name: 'testType']
 			])
 		])
 
@@ -54,8 +51,7 @@ bstack-local-parallel-multiple''',
 		stage('Run Test(s)') {
 			browserstack(credentialsId: "${params.BROWSERSTACK_USERNAME}") {
 				sh '''
-					cd test
-					npm run ${TEST_TYPE}
+					python3 -m robot --variable testType:${TEST_TYPE} .
 				'''
 			}
 		}
