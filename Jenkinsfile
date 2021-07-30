@@ -53,7 +53,7 @@ bstack-local''',
 			browserstack(credentialsId: "${params.BROWSERSTACK_USERNAME}") {
 				sh '''
 					ls
-					cd src/test/suites
+					cd test
 					python3 -m robot --variable testType:${TEST_TYPE} .
 				'''
 			}
