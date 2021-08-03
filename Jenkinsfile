@@ -47,7 +47,7 @@ bstack-local''',
 				 pip3 install robotframework-seleniumlibrary --user
 				 pip3 install browserstack --user
 				 pip3 install webdriver_manager
-				 pip3 install robotframework-pabot
+				 pip install robotframework-pabot
 
 
 			'''
@@ -58,6 +58,7 @@ bstack-local''',
 				if ( "${params.TEST_TYPE}".contains('parallel') ) {
 				sh '''
 					cd test
+					pip show robotframework-pabot
 					pabot --testlevelsplit --variable testType:bstack-single .
 				'''
 					
