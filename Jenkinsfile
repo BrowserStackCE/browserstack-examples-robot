@@ -53,10 +53,22 @@ bstack-local''',
 
 		stage('Run Test(s)') {
 			browserstack(credentialsId: "${params.BROWSERSTACK_USERNAME}") {
+				if ( "${params.TEST_TYPE}".contains('parallel') ) {
+				sh '''
+					cd test
+					pabot --testlevelsplit --variable testType:${TEST_TYPE} .
+				'''
+					
+					
+				}
+				else{
 				sh '''
 					cd test
 					python3 -m robot --variable testType:${TEST_TYPE} .
 				'''
+				
+				}
+
 			}
 		}
 	} catch (e) {
