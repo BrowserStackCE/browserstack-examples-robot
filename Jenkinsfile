@@ -58,7 +58,7 @@ bstack-local''',
 				if ( "${params.TEST_TYPE}".contains('parallel') ) {
 				sh '''
 					cd test
-					pabot --testlevelsplit --variable testType:$bstack-single .
+					pabot --testlevelsplit --variable testType:bstack-single .
 				'''
 					
 					
