@@ -47,6 +47,8 @@ bstack-local''',
 				 pip3 install robotframework-seleniumlibrary --user
 				 pip3 install browserstack --user
 				 pip3 install webdriver_manager
+				 pip3 install -U robotframework-pabot
+
 
 			'''
 		}
