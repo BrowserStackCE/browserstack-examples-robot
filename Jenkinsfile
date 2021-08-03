@@ -67,7 +67,7 @@ bstack-local''',
 				else{
 				sh '''
 					cd test
-					python3 -m robot --variable testType:${TEST_TYPE} .
+					robot --variable testType:${TEST_TYPE} .
 				'''
 				
 				}
