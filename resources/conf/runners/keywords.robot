@@ -1,9 +1,6 @@
 *** Settings ***
 Library    Library.py
 
-*** Variables ***
-${caps_path}    ${CURDIR}/../../../resources/conf/caps/test_caps.json
-
 
 *** Keywords ***
 Start Test
@@ -34,11 +31,8 @@ Start local Test
 
 Start onprem Test
 
-    ${json2}=           Get file    ${caps_path}
-    ${json_object2}=    Evaluate    json.loads('''${json2}''')    json
 
-
-    ${application_endpoint}=    Set Variable    ${json_object2['application_endpoint']}
+    ${application_endpoint}=    get_test_endpoint
 
 
     Open Browser    ${application_endpoint}    chrome
@@ -46,11 +40,7 @@ Start onprem Test
 
 Start docker Test
 
-    ${json2}=           Get file    ${caps_path}
-    ${json_object2}=    Evaluate    json.loads('''${json2}''')    json
-
-
-    ${application_endpoint}=    Set Variable    ${json_object2['application_endpoint']}
+    ${application_endpoint}=    get_test_endpoint
 
     ${docker_remote_url}=    http://localhost:4444/wd/hub
 
