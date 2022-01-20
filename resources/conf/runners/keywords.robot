@@ -9,26 +9,16 @@ ${caps_path}    ${CURDIR}/../../../resources/conf/caps/test_caps.json
 Start Test
     [Arguments]    ${testType}
 
-    Run Keyword If    '${testType}'=='bstack-single'    Start single Test    ELSE IF    '${testType}'=='bstack-local'    Start local Test    ELSE IF    '${testType}'=='docker'    Start docker Test    ELSE    Start onprem Test
+    Run Keyword If    '${testType}'=='bstack-single'    Start single Test       ELSE IF    '${testType}'=='docker'    Start docker Test    ELSE    Start onprem Test
 
 
 Start single Test
 
     ${remote_url}=    Set Variable    https://hub-cloud.browserstack.com/wd/hub
 
-    ${json2}=           Get file    ${caps_path}
-    ${json_object2}=    Evaluate    json.loads('''${json2}''')    json
+    ${application_endpoint}=    get_test_endpoint
 
-
-    ${application_endpoint}=    Set Variable    ${json_object2['application_endpoint']}
-
-    ${username_status}     Run Keyword And Return Status    Get Environment Variable    BROWSERSTACK_USERNAME
-    ${acess_key_status}    Run Keyword And Return Status    Get Environment Variable    BROWSERSTACK_ACCESS_KEY
-
-    ${user}=          Set Variable If    """${username_status}""" == 'True'     %{BROWSERSTACK_USERNAME}      ${json_object2['user']} 
-    ${access_key}=    Set Variable If    """${acess_key_status}""" == 'True'    %{BROWSERSTACK_ACCESS_KEY}    ${json_object2['key']} 
-
-    ${caps}=    get_caps_single    ${caps_path}    ${user}    ${access_key}
+    ${caps}=    get_caps_single    
 
     Open Browser    ${application_endpoint}    remote_url=${remote_url}    desired_capabilities=${caps}
 
@@ -36,30 +26,11 @@ Start local Test
 
     ${remote_url}=    Set Variable    https://hub-cloud.browserstack.com/wd/hub
 
-    ${json2}=           Get file    ${caps_path}
-    ${json_object2}=    Evaluate    json.loads('''${json2}''')    json
+    ${application_endpoint}=    get_test_endpoint
 
-
-    ${application_endpoint}=    Set Variable    ${json_object2['tests']['local']['application_endpoint']}
-
-    ${username_status}     Run Keyword And Return Status    Get Environment Variable    BROWSERSTACK_USERNAME
-    ${acess_key_status}    Run Keyword And Return Status    Get Environment Variable    BROWSERSTACK_ACCESS_KEY
-
-    ${user}=          Set Variable If    """${username_status}""" == 'True'     %{BROWSERSTACK_USERNAME}      ${json_object2['user']} 
-    ${access_key}=    Set Variable If    """${acess_key_status}""" == 'True'    %{BROWSERSTACK_ACCESS_KEY}    ${json_object2['key']} 
-
-
-    ${caps}=    get_caps_local    ${caps_path}    ${user}    ${access_key}
-
-
-    ${local_instance}=    start_local    ${access_key}
+    ${caps}=    get_caps_single    
 
     Open Browser    ${application_endpoint}    remote_url=${remote_url}    desired_capabilities=${caps}
-
-
-Stop Local Test
-    stop_local
-
 
 Start onprem Test
 
@@ -89,9 +60,7 @@ Start docker Test
 Stop Test
     [Arguments]    ${testType}
 
-    # Run Keyword If    '${testType}'=='bstack-single'    Mark Test Status   ${TEST_STATUS}    ELSE IF    '${testType}'=='bstack-local'    Mark Test Status   ${TEST_STATUS}
     Only Run On Browserstack    Mark Test Status                 ${TEST_STATUS}
-    Run Keyword If              '${testType}'=='bstack-local'    stop_local
     Close Browser
 
 Get Password From CSV
@@ -115,7 +84,7 @@ Rename Session
 
 Only Run On Browserstack
     [Arguments]       ${keyword}                        ${param}
-    Run Keyword If    '${testType}'=='bstack-single'    ${keyword}    ${param}    ELSE IF    '${testType}'=='bstack-local'    ${keyword}    ${param}
+    Run Keyword If    '${testType}'=='bstack-single'    ${keyword}    ${param}
 
 Get Product Prices From CSV
     ${prices}=    get_product_prices

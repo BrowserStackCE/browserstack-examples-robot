@@ -1,4 +1,3 @@
-from browserstack.local import Local
 import json
 import csv
 import os
@@ -7,11 +6,13 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
-import urllib3
+import urllib3 
+from webdriverFrameworkCorePython.src.main.webdriver.core import WebDriverFactory
+
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-bstack_local = 0
 se2lib = BuiltIn().get_library_instance('SeleniumLibrary')
+factory = WebDriverFactory.WebDriverFactoryClass.getInstance()
 
 user_data = '../../data/user.csv'
 product_data = '../../data/product.csv'
@@ -24,54 +25,22 @@ def combine_dict(dict1, dict2):
 
     return dict_1
 
+def get_endpoint():
+    url_to_test = factory.getTestEndpoint()
+    return url_to_test
 
-def get_caps_single(caps_path, username, access_key):
+def get_caps_single():
 
-    with open(caps_path) as f:
-        data = json.load(f)
+    allPlatforms = factory.getPlatforms()
 
-    single_caps_common = data['tests']['single']['common_caps']
-    single_caps_env = data['tests']['single']['env_caps'][0]
+    single_caps = factory.getPlatformCaps(allPlatforms[0], "Robot Test", None)
+    return single_caps
 
-    single_caps_common.update(single_caps_env)
-    single_caps_common['browserstack.user'] = username
-    single_caps_common['browserstack.key'] = access_key
+def get_test_endpoint():
 
-    return single_caps_common
+    testendpoint = factory.getTestEndpoint()
 
-
-def get_caps_local(caps_path, username, access_key):
-
-    with open(caps_path) as f:
-        data = json.load(f)
-
-    caps_common = data['tests']['local']['common_caps']
-    caps_env = data['tests']['local']['env_caps'][0]
-
-    caps_common.update(caps_env)
-    caps_common['browserstack.user'] = username
-    caps_common['browserstack.key'] = access_key
-
-    return caps_common
-
-
-def start_local(key):
-
-    global bstack_local
-    bstack_local = Local()
-
-    bstack_local_args = {"key": key}
-
-    bstack_local.start(**bstack_local_args)
-
-    return bstack_local
-
-
-def stop_local():
-
-    global bstack_local
-
-    bstack_local.stop()
+    return testendpoint
 
 
 def get_row_item_from_file(filepath, key):
