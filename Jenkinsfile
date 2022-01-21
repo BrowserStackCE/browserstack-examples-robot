@@ -57,7 +57,7 @@ bstack-local''',
 				sh '''
 					cd test
 					
-					python3 -m pabot --testlevelsplit --variable testType:bstack-single .
+					pabot --testlevelsplit --variable testType:bstack-single .
 				'''
 					
 					
