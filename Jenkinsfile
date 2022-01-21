@@ -57,7 +57,7 @@ bstack-local''',
 				sh '''
 					cd test
 					
-					pabot --testlevelsplit --variable testType:bstack-single .
+					python3 -m pabot --testlevelsplit --variable testType:bstack-single .
 				'''
 					
 					
@@ -66,18 +66,13 @@ bstack-local''',
 					sh '''
 					cd test
 					export CONFIG_FILE_PATH='resources/conf/caps/bstack-local-config.yaml'
-					robot --variable testType:bstack-single .
+					python3 -m robot --variable testType:bstack-single .
 				'''
 				}
 				else{
 				sh '''
 					cd test
 					export CONFIG_FILE_PATH='resources/conf/caps/bstack-config.yaml'
-					python3 -m pip install robotframework 
-					python3 -m pip install robotframework-seleniumlibrary 
-					python3 -m pip install browserstack 
-					python3 -m pip install webdriver_manager
-					python3 -m pip install robotframework-pabot 
 					python3 -m robot --variable testType:bstack-single .
 				'''
 				
