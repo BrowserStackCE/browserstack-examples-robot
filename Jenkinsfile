@@ -22,7 +22,7 @@ bstack-local''',
 
 		stage('Pull from Github') {
 			dir('test') {
-				git branch: 'develop', changelog: false, poll: false, url: 'https://github.com/browserstack/browserstack-examples-robot.git'
+				git branch: 'review', changelog: false, poll: false, url: 'https://github.com/browserstack/browserstack-examples-robot.git'
 			}
 		}
 
