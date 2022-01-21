@@ -67,7 +67,7 @@ bstack-local''',
 				if ( "${params.TEST_TYPE}".contains('parallel') ) {
 				sh '''
 					cd test
-					export CONFIG_FILE_PATH=`pwd`+'resources/conf/caps/bstack-config.yaml'
+					export CONFIG_FILE_PATH=`pwd`/'resources/conf/caps/bstack-config.yaml'
 					pabot --testlevelsplit --variable testType:bstack-single .
 				'''
 					
@@ -76,14 +76,14 @@ bstack-local''',
 				else if ( "${params.TEST_TYPE}".contains('local') ) {
 					sh '''
 					cd test
-					export CONFIG_FILE_PATH=`pwd`+'resources/conf/caps/bstack-local-config.yaml'
+					export CONFIG_FILE_PATH=`pwd`/'resources/conf/caps/bstack-local-config.yaml'
 					python3 -m robot --variable testType:bstack-single .
 				'''
 				}
 				else{
 				sh '''
 					cd test
-					export CONFIG_FILE_PATH=`pwd`+'resources/conf/caps/bstack-config.yaml'
+					export CONFIG_FILE_PATH=`pwd`/'resources/conf/caps/bstack-config.yaml'
 					python3 -m robot --variable testType:bstack-single .
 				'''
 				
