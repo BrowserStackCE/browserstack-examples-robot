@@ -68,7 +68,7 @@ bstack-local''',
 				sh '''
 					cd test
 					export CONFIG_FILE_PATH=`pwd`/'resources/conf/caps/bstack-config.yaml'
-					pabot --testlevelsplit --variable testType:bstack-single --suite product .
+					python3 -m pabot --testlevelsplit --variable testType:bstack-single --suite product .
 				'''
 					
 					
