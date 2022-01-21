@@ -78,7 +78,7 @@ bstack-local''',
 					python3 -m pip install browserstack 
 					python3 -m pip install webdriver_manager
 					python3 -m pip install robotframework-pabot 
-					robot --variable testType:bstack-single .
+					python3 -m robot --variable testType:bstack-single .
 				'''
 				
 				}
