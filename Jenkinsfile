@@ -61,7 +61,7 @@ bstack-local''',
 					cd pipPackage/selenium
 
 					python3 -m pip install wheel
-					python3 -m pip intall .
+					python3 -m pip install .
 				'''
 
 				if ( "${params.TEST_TYPE}".contains('parallel') ) {
