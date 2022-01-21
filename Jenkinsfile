@@ -43,11 +43,11 @@ bstack-local''',
 
 		stage('Install Dependencies'){
 			sh '''
-				 pip3 install robotframework --user
-				 pip3 install robotframework-seleniumlibrary --user
-				 pip3 install browserstack --user
-				 pip3 install webdriver_manager
-				 pip3 install robotframework-pabot --user
+				 python3 -m pip install robotframework 
+				 python3 -m pip install robotframework-seleniumlibrary 
+				 python3 -m pip install browserstack 
+				 python3 -m pip install webdriver_manager
+				 python3 -m pip install robotframework-pabot 
 			'''
 		}
 
