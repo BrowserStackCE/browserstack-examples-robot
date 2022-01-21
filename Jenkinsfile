@@ -62,10 +62,18 @@ bstack-local''',
 					
 					
 				}
+				else if ( "${params.TEST_TYPE}".contains('local') ) {
+					sh '''
+					cd test
+					export CONFIG_FILE_PATH='resources/conf/caps/bstack-local-config.yaml'
+					robot --variable testType:bstack-single .
+				'''
+				}
 				else{
 				sh '''
 					cd test
-					robot --variable testType:${TEST_TYPE} .
+					export CONFIG_FILE_PATH='resources/conf/caps/bstack-config.yaml'
+					robot --variable testType:bstack-single .
 				'''
 				
 				}
