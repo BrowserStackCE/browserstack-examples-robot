@@ -10,7 +10,6 @@ node {
 					$class: 'TextareaChoiceListProvider',
 					addEditedValue: false,
 					choiceListText: '''bstack-single
-bstack-parallel
 bstack-local''',
 					defaultChoice: 'bstack-single'
 				],
@@ -71,7 +70,8 @@ bstack-local''',
 				sh '''
 					cd test
 					export CONFIG_FILE_PATH=`pwd`/'resources/conf/caps/bstack-config.yaml'
-					pabot --testlevelsplit --verbose --variable testType:bstack-single --suite product .
+
+					//pabot --testlevelsplit --verbose --variable testType:bstack-single --suite product .
 				'''
 					
 					
