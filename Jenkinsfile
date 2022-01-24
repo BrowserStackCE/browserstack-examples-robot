@@ -10,6 +10,7 @@ node {
 					$class: 'TextareaChoiceListProvider',
 					addEditedValue: false,
 					choiceListText: '''bstack-single
+bstack-parallel
 bstack-local''',
 					defaultChoice: 'bstack-single'
 				],
@@ -70,10 +71,8 @@ bstack-local''',
 					python3 -m robot --variable testType:bstack-single .
 
 					//pabot --testlevelsplit --verbose --variable testType:bstack-single --suite product .
+
 				'''
-					
-					
-				}
 				else if ( "${params.TEST_TYPE}".contains('local') ) {
 					sh '''
 					cd test
@@ -86,6 +85,7 @@ bstack-local''',
 					cd test
 					export CONFIG_FILE_PATH=`pwd`/'resources/conf/caps/bstack-config.yaml'
 					python3 -m robot --variable testType:bstack-single .
+
 				'''
 				
 				}
