@@ -226,7 +226,7 @@ Note:
 
 ### Run a specific test on BrowserStack
 
-In this section, we will run a single test on Chrome browser on Browserstack. To change test capabilities for this configuration, please refer to the `single` object in `test_caps.json` file.
+In this section, we will run a single test on Chrome browser on Browserstack. To change test capabilities for this configuration, please refer to the `bstack-config.json` file.
 
 - How to run the test?
   
@@ -250,7 +250,7 @@ In this section, we will run a single test on Chrome browser on Browserstack. To
 
 ### Run the entire test suite in parallel on a single BrowserStack browser
 
-In this section, we will run the tests in parallel on a single browser on Browserstack. Refer to `single` object in `test_caps.json` file to change test capabilities for this configuration.
+In this section, we will run the tests in parallel on a single browser on Browserstack. Refer to `bstack-config.json` file to change test capabilities for this configuration.
 
 - How to run the test?
 
@@ -261,7 +261,6 @@ In this section, we will run the tests in parallel on a single browser on Browse
   ```
 
 
-
 - Output
 
   This run profile executes the entire test suite in parallel on a single BrowserStack browser. Please refer to your [BrowserStack dashboard](https://automate.browserstack.com/) for test results.
@@ -269,59 +268,11 @@ In this section, we will run the tests in parallel on a single browser on Browse
   - Note: By default, this execution would run maximum 5 test threads in parallel on BrowserStack. Refer to the section ["Configuring the maximum parallel test threads for this repository"](#Configuring-the-maximum-parallel-test-threads-for-this-repository) for updating the parallel thread count based on your requirements.
 
 
-### [Web application hosted on internal environment] Running your tests on BrowserStack using BrowserStackLocal
+### Run a tests on BrowserStack which need Local Environment access
 
-#### Prerequisites
+  The only change you need to do here, is to add the respective options in the `bstack-config.json` file.
+  The webdriver framework handles the starting and termination of BrowserStack Local Instance.
 
-- Clone the [BrowserStack demo application](https://github.com/browserstack/browserstack-demo-app) repository.
-  ```sh
-  git clone https://github.com/browserstack/browserstack-demo-app
-  ``` 
-- Please follow the README.md on the BrowserStack demo application repository to install and start the dev server on localhost.
-- In this section, we will run a single test case to test the BrowserStack Demo app hosted on your local machine i.e. localhost. Refer to the `single_local` object in `caps.json` file to change test capabilities for this configuration.
-- Note: You may need to provide additional BrowserStackLocal arguments to successfully connect your localhost environment with BrowserStack infrastructure. (e.g if you are behind firewalls, proxy or VPN).
-- Further details for successfully creating a BrowserStackLocal connection can be found here:
-  
-  - [Local Testing with Automate](https://www.browserstack.com/local-testing/automate)
-  - [BrowserStackLocal Python GitHub](https://github.com/browserstack/browserstack-local-python)
-
-
-### [Web application hosted on internal environment] Run a specific test on BrowserStack using BrowserStackLocal
-
-- How to run the test?
-
-  To run a specific test scenario, use the following command with the additional test-name argument:
-
-  ```sh
-    robot --variable testType:bstack-local --test "<Test scenario name>" . 
-
-  ```
-  
-  where,  the argument 'test-name' can be any scenario name configured in this repository.
-  
-  E.g. "Check Login with locked_user", "E2E Test", "Apply 'Lowest to Highest' Order By Filter" or any of the other test scenario names, as outlined in [About the tests in this repository](#About-the-tests-in-this-repository) section.
-
-
-- Output
-
-  This run profile executes a single test on an internally hosted web application on a single browser on BrowserStack. Please refer to your BrowserStack dashboard(https://automate.browserstack.com/) for test results.
-
-
-### [Web application hosted on internal environment] Run the entire test suite in parallel on a single BrowserStack browser using BrowserStackLocal
-
-In this section, we will run the test cases to test the internally hosted website in parallel on a single browser on Browserstack. Refer to the `single_local` object in `test_caps.json` file to change test capabilities for this configuration.
-
-- How to run the test?
-
-  To run the entire test suite in parallel on a single BrowserStack browser using BrowserStackLocal, use the following command:
-  ```sh
-  pabot --testlevelsplit --variable testType:bstack-local --suite <Suite-Name> .
-  ```
-
-
-- Output
-
-   This run profile executes the entire test suite on an internally hosted web application on a single browser on BrowserStack. Please refer to your [BrowserStack dashboard](https://automate.browserstack.com/) for test results.
 
 ## Generating Allure Reports
 
