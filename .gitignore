@@ -4,4 +4,7 @@ pabot_results
 webdriverFrameworkCorePython
 *.png
 
-
+log.html
+local.log
+output.xml
+report.html
