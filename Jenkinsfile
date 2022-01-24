@@ -70,7 +70,6 @@ bstack-local''',
 					touch log.html
 					touch report.html
 					touch output.xml
-					mkdir pabot_results
 					export CONFIG_FILE_PATH=`pwd`/'resources/conf/caps/bstack-config.yaml'
 					python3 -m pabot.pabot --testlevelsplit --variable testType:bstack-single --suite product .
 				'''
