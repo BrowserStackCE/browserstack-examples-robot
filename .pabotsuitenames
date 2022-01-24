@@ -1,0 +1,6 @@
+datasources:bb466027e41571afae32b0ad9b7446edd0d0e542
+commandlineoptions:989bb1b4f7c83aff8ca25bb45622a378bb21eba4
+suitesfrom:no-suites-from-option
+file:fcdc98a41afa08c711dd6de702630ce7bd51c533
+--test Browserstack-Examples-Robot.Src.Test.Suites.Product.Filter Test.Apply 'Lowest to Highest' Order By Filter
+--test Browserstack-Examples-Robot.Src.Test.Suites.Product.Filter Test.Apply Apple And Samsung Filter
