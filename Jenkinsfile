@@ -67,11 +67,8 @@ bstack-local''',
 				if ( "${params.TEST_TYPE}".contains('parallel') ) {
 				sh '''
 					cd test
-					touch log.html
-					touch report.html
-					touch output.xml
 					export CONFIG_FILE_PATH=`pwd`/'resources/conf/caps/bstack-config.yaml'
-					python3 -m pabot.pabot --testlevelsplit --variable testType:bstack-single --suite product .
+					python3 -m pabot.pabot  --testlevelsplit --outputdir pabot_results --variable testType:bstack-single --suite product .
 				'''
 					
 					
