@@ -45,14 +45,11 @@ bstack-local''',
 
 		stage('Install Dependencies'){
 			sh '''
-				 pip3 install robotframework 
-				 pip3 install robotframework-seleniumlibrary 
-				 pip3 install browserstack 
-				 pip3 install webdriver_manager
-				 pip3 install robotframework-pabot 
-
-				 pip3 show robotframework
-				 echo $USER
+				 python3 -m pip install robotframework 
+				 python3 -m pip install robotframework-seleniumlibrary 
+				 python3 -m pip install browserstack 
+				 python3 -m pip install webdriver_manager
+				 python3 -m pip install robotframework-pabot 
 			'''
 		}
 
@@ -62,15 +59,16 @@ bstack-local''',
 				sh '''
 					cd pipPackage/selenium
 
-					pip3 install wheel
-					pip3 install .
+					python3 -m pip install wheel
+					python3 -m pip install .
 				'''
 
 				if ( "${params.TEST_TYPE}".contains('parallel') ) {
 				sh '''
 					cd test
 					export CONFIG_FILE_PATH=`pwd`/'resources/conf/caps/bstack-config.yaml'
-
+					python3 -m robot --variable testType:bstack-single .
+					
 					//pabot --testlevelsplit --verbose --variable testType:bstack-single --suite product .
 				'''
 					
@@ -80,14 +78,14 @@ bstack-local''',
 					sh '''
 					cd test
 					export CONFIG_FILE_PATH=`pwd`/'resources/conf/caps/bstack-local-config.yaml'
-					robot --variable testType:bstack-single .
+					python3 -m robot --variable testType:bstack-single .
 				'''
 				}
 				else{
 				sh '''
 					cd test
 					export CONFIG_FILE_PATH=`pwd`/'resources/conf/caps/bstack-config.yaml'
-					robot --variable testType:bstack-single .
+					python3 -m robot --variable testType:bstack-single .
 				'''
 				
 				}
