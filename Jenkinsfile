@@ -50,7 +50,7 @@ bstack-local''',
 				 python3 -m pip install robotframework-seleniumlibrary 
 				 python3 -m pip install browserstack 
 				 python3 -m pip install webdriver_manager
-				 pip3 install robotframework-pabot 
+				 python3 -m pip3 install robotframework-pabot 
 			'''
 		}
 
@@ -68,7 +68,7 @@ bstack-local''',
 				sh '''
 					cd test
 					export CONFIG_FILE_PATH=`pwd`/'resources/conf/caps/bstack-config.yaml'
-					pabot --testlevelsplit --variable testType:bstack-single --suite product .
+					python3 -m pabot.pabot --testlevelsplit --variable testType:bstack-single --suite product .
 				'''
 					
 					
