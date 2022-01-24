@@ -50,7 +50,7 @@ bstack-local''',
 				 python3 -m pip install robotframework-seleniumlibrary 
 				 python3 -m pip install browserstack 
 				 python3 -m pip install webdriver_manager
-				 pip install robotframework-pabot 
+				 pip3 install robotframework-pabot 
 			'''
 		}
 
