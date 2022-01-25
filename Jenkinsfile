@@ -95,7 +95,6 @@ bstack-local''',
 		}
 	} catch (e) {
 		currentBuild.result = 'FAILURE'
-		echo e
 	} finally {
 		stage('Publish Results'){
 			browserStackReportPublisher 'automate'
