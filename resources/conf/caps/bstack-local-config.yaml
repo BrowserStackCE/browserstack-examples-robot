@@ -27,7 +27,7 @@ cloudDriver:
       verbose: true
   common_capabilities:
     project: BrowserStack Demo Repository
-    buildPrefix: browserstack-examples-python-robot
+    buildPrefix: jenkins-browserstack-examples-robot
     capabilities:
       browserstack.debug: true
       browserstack.networkLogs: true
