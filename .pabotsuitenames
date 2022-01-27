@@ -1,0 +1,13 @@
+datasources:1264944a75769227dc97f934ec2063d6455342ca
+commandlineoptions:4646f830c11b3b08187f1ae751d3e04041590953
+suitesfrom:no-suites-from-option
+file:17dd078aa6065f2781278431933ce407d5d6c9b7
+--test Browserstack-Examples-Robot.Src.Test.Suites.E2E.E2E.E2E Test
+--test Browserstack-Examples-Robot.Src.Test.Suites.Login.loginTests.Check if Signin opens on clicking on favourites nav item
+--test Browserstack-Examples-Robot.Src.Test.Suites.Login.loginTests.Check Login with locked_user
+--test Browserstack-Examples-Robot.Src.Test.Suites.Offers.Offers Test.Set GPS location to Mumbai and check offers
+--test Browserstack-Examples-Robot.Src.Test.Suites.Product.Filter Test.Apply 'Lowest to Highest' Order By Filter
+--test Browserstack-Examples-Robot.Src.Test.Suites.Product.Filter Test.Apply Apple And Samsung Filter
+--test Browserstack-Examples-Robot.Src.Test.Suites.User.User Tests.Check Login with image_not_loading_user
+--test Browserstack-Examples-Robot.Src.Test.Suites.User.User Tests.Check Order in existing_orders_user
+--test Browserstack-Examples-Robot.Src.Test.Suites.User.User Tests.Add fav and check fav count

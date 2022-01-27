@@ -69,7 +69,7 @@ bstack-local''',
 					cd test
 					export CONFIG_FILE_PATH=`pwd`/'resources/conf/caps/bstack-config.yaml'
 					export PATH=~/.local/bin:$PATH
-					/var/lib/jenkins/.local/bin/pabot --testlevelsplit --verbose --variable testType:bstack-single --suite product .
+					/var/lib/jenkins/.local/bin/pabot --testlevelsplit --verbose --variable testType:bstack-single .
 
 				'''
 				}
