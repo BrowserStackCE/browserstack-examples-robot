@@ -22,7 +22,7 @@ bstack-local''',
 
 		stage('Pull from Github') {
 			dir('test') {
-				git branch: 'review', changelog: false, poll: false, url: 'https://github.com/browserstack/browserstack-examples-robot.git'
+				git branch: 'main', changelog: false, poll: false, url: 'https://github.com/browserstack/browserstack-examples-robot.git'
 			}
 			dir('pipPackage') {
 				git branch: 'develop_webdriver-framework_python', changelog: false, poll: false, url: 'https://github.com/browserstack/webdriver-framework.git'
