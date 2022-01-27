@@ -22,7 +22,7 @@ bstack-local''',
 
 		stage('Pull from Github') {
 			dir('test') {
-				git branch: 'review', changelog: false, poll: false, url: 'https://github.com/browserstack/browserstack-examples-robot.git'
+				git branch: 'main', changelog: false, poll: false, url: 'https://github.com/browserstack/browserstack-examples-robot.git'
 			}
 			dir('pipPackage') {
 				git branch: 'develop_webdriver-framework_python', changelog: false, poll: false, url: 'https://github.com/browserstack/webdriver-framework.git'
@@ -68,11 +68,11 @@ bstack-local''',
 				sh '''
 					cd test
 					export CONFIG_FILE_PATH=`pwd`/'resources/conf/caps/bstack-config.yaml'
-					python3 -m robot --variable testType:bstack-single .
-
-					//pabot --testlevelsplit --verbose --variable testType:bstack-single --suite product .
+					export PATH=~/.local/bin:$PATH
+					/var/lib/jenkins/.local/bin/pabot --testlevelsplit --processes 5 --variable testType:bstack-single .
 
 				'''
+				}
 				else if ( "${params.TEST_TYPE}".contains('local') ) {
 					sh '''
 					cd test
@@ -94,7 +94,6 @@ bstack-local''',
 		}
 	} catch (e) {
 		currentBuild.result = 'FAILURE'
-		echo e
 	} finally {
 		stage('Publish Results'){
 			browserStackReportPublisher 'automate'
