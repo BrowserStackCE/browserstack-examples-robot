@@ -215,10 +215,22 @@ Note: The ChromeDriver version must match the Chrome browser version on your mac
   set BROWSERSTACK_ACCESS_KEY=<browserstack-access-key>
   ```
   
-  Alternatively, you can also hardcode username and access_key objects in the [test_caps.json](resources/conf/caps/test_caps.json) file.
+  Alternatively, you can also hardcode username and access_key objects in the [bstack-config.yaml](resources/conf/caps/bstack-config.yaml) file.
+- Now we need to set the path for the config file we would want to use. 
 
+    - For \*nix based and Mac machines:
+
+      ```sh
+      export CONFIG_FILE_PATH=<config-file-path>
+      ```
+
+     - For Windows:
+
+      ```shell
+      set CONFIG_FILE_PATH=<config-file-path>
+      ```
 Note:
-- We have configured a list of test capabilities in the [test_caps.json](resources/conf/caps/test_caps.json) file. You can certainly update them based on your device / browser test requirements. 
+- We have configured a list of test capabilities in the [bstack-config.yaml](resources/conf/caps/bstack-config.yaml) file. You can certainly update them based on your device / browser test requirements. 
 - The exact test capability values can be easily identified using the [Browserstack Capability Generator](https://browserstack.com/automate/capabilities)
 
 
@@ -270,8 +282,10 @@ In this section, we will run the tests in parallel on a single browser on Browse
 
 ### Run a tests on BrowserStack which need Local Environment access
 
-  The only change you need to do here, is to add the respective options in the `bstack-config.json` file.
+  The only change you need to do here, is to add the respective options in the `bstack-config.yaml` file.
   The webdriver framework handles the starting and termination of BrowserStack Local Instance.
+  
+  Here you just need to change the CONFIG_FILE_PATH environment variable to use [bstack-local-config.yaml](resources/conf/caps/bstack-local-config.yaml) file.
 
 
 ## Generating Allure Reports
