@@ -238,7 +238,7 @@ Note:
 
 ### Run a specific test on BrowserStack
 
-In this section, we will run a single test on Chrome browser on Browserstack. To change test capabilities for this configuration, please refer to the `bstack-config.json` file.
+In this section, we will run a single test on Chrome browser on Browserstack. To change test capabilities for this configuration, please refer to the `bstack-config.yaml` file.
 
 - How to run the test?
   
@@ -262,7 +262,7 @@ In this section, we will run a single test on Chrome browser on Browserstack. To
 
 ### Run the entire test suite in parallel on a single BrowserStack browser
 
-In this section, we will run the tests in parallel on a single browser on Browserstack. Refer to `bstack-config.json` file to change test capabilities for this configuration.
+In this section, we will run the tests in parallel on a single browser on Browserstack. Refer to `bstack-config.yaml` file to change test capabilities for this configuration.
 
 - How to run the test?
 
