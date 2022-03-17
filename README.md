@@ -226,7 +226,7 @@ Note: The ChromeDriver version must match the Chrome browser version on your mac
 
      - For Windows:
 
-      ```shell
+      ```sh
       set CONFIG_FILE_PATH=<config-file-path>
       ```
 Note:
