@@ -224,11 +224,10 @@ Note: The ChromeDriver version must match the Chrome browser version on your mac
       export CONFIG_FILE_PATH=<config-file-path>
       ```
 
-     - For Windows:
+    - For Windows:
 
       ```sh
       set CONFIG_FILE_PATH=<config-file-path>
-      
       ```
 Note:
 - We have configured a list of test capabilities in the [bstack-config.yaml](resources/conf/caps/bstack-config.yaml) file. You can certainly update them based on your device / browser test requirements. 
