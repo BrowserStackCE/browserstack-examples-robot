@@ -218,7 +218,7 @@ Note: The ChromeDriver version must match the Chrome browser version on your mac
   Alternatively, you can also hardcode username and access_key objects in the [bstack-config.yaml](resources/conf/caps/bstack-config.yaml) file.
 - Now we need to set the path for the config file we would want to use. 
 
-    - For \*nix based and Mac machines:
+    - For unix based and Mac machines:
 
       ```sh
       export CONFIG_FILE_PATH=<config-file-path>
@@ -228,6 +228,7 @@ Note: The ChromeDriver version must match the Chrome browser version on your mac
 
       ```sh
       set CONFIG_FILE_PATH=<config-file-path>
+      
       ```
 Note:
 - We have configured a list of test capabilities in the [bstack-config.yaml](resources/conf/caps/bstack-config.yaml) file. You can certainly update them based on your device / browser test requirements. 
