@@ -16,6 +16,23 @@ The Selenium test tests are run on different platforms like on-prem, docker and 
 ## Repository setup
 
 - Clone the repository
+    ```sh
+    git clone https://github.com/browserstack/webdriver-framework.git
+    ```
+- Switch to the required branch
+    ```sh
+    git checkout develop_webdriver-framework_python
+    ```
+- Install the webdriver-framework from the cloned repository locally
+    ```sh
+    cd selenium
+    pip install wheel
+    pip install .
+    ```
+- Clone the current repository
+    ```sh
+    git clone https://github.com/browserstack/browserstack-examples-robot.git
+    ```
 
 - Ensure you have the following dependencies installed on the machine
     - Python 3
