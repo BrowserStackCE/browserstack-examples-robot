@@ -33,4 +33,3 @@ Check Login with locked_user
     Confirm Locked User Error
 
     Stop Test
-

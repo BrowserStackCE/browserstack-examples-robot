@@ -7,7 +7,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 import urllib3
-
+import time
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 se2lib = BuiltIn().get_library_instance('SeleniumLibrary')
@@ -70,5 +70,5 @@ def set_loc(lat, long):
         "window.navigator.geolocation.getCurrentPosition = function(cb){cb({ coords: {accuracy: 20,altitude: null,altitudeAccuracy: null,heading: null,latitude: " + lat + ",longitude: " + long + ",speed: null}}); }")
 
 def add_wait():
-    import time
     time.sleep(5)
+    

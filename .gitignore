@@ -8,3 +8,5 @@ log.html
 local.log
 output.xml
 report.html
+.DS_Store
+__pycache__

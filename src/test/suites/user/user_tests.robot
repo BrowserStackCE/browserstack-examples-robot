@@ -49,4 +49,3 @@ Add fav and check fav count
     Favourites.Confirm Favourites Greater Than Zero
 
     Stop Test
-

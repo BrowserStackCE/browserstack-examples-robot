@@ -60,39 +60,6 @@ The Selenium tests in this repo are run on BrowserStack real device/browser usin
 
 ## Running Your Tests on Browserstack
 
-### Run a specific test
-
-- How to run the test?
-
-  To run a specific test scenario, use the command below:
-  
-  ```sh
-  browserstack-sdk robot /path/to/test.robot . 
-  ```
-
-- Output
-
-  This run profile executes the specific test scenario in browserstack on the browsers configured in your `browserstack.yml` file.
-
-
-### Run the entire test suite
-
-- How to run the test?
-
-  To run the entire test suite parallely in browserstack, you will require [pabot dependency](https://pabot.org/)  use the following command:
-  
-  ```sh
-  browserstack-sdk pabot path/to/testsuiteFolder .
-  ```
-  You can also use the other combinations as described in [pabot](https://pabot.org/) to run your tests parallely. 
-
-- Output
-
-  This run profile executes the entire test suite parallely in browserstack on the browsers configured in your `browserstack.yml` file. 
-
-  
----
-
 ## Prerequisites to run your tests on Browserstack
 
 - Create a new [BrowserStack account](https://www.browserstack.com/users/sign_up) or use an existing one.
@@ -115,9 +82,40 @@ The Selenium tests in this repo are run on BrowserStack real device/browser usin
   Alternatively, you can also hardcode username and access_key objects in the `browserstack.yml` sdk file. 
 
 Note:
-- You can use this SDK config generator [BrowserStack SDK Configurator](https://www.browserstack.com/docs/automate/selenium/sdk-config-generator) to create your `browserstack.yml` file and certainly update them based on your device / browser test requirements. 
+- You can use this SDK config generator [BrowserStack SDK Configurator](https://www.browserstack.com/docs/automate/selenium/sdk-config-generator) to create your `browserstack.yml` file and certainly update them based on your device / browser test requirements.
+
+### Run a specific test
+
+- How to run the test?
+
+  To run a specific test scenario, use the command below:
+  
+  ```sh
+  browserstack-sdk robot /path/to/test.robot
+  ```
+
+- Output
+
+  This run profile executes the specific test scenario in browserstack on the platforms configured in your `browserstack.yml` file.
 
 
+### Run the entire test suite
+
+- How to run the test?
+
+  To run the entire test suite parallely in browserstack, you will require [pabot dependency](https://pabot.org/)  use the following command:
+  
+  ```sh
+  browserstack-sdk pabot path/to/testsuiteFolder
+  ```
+  You can also use the other combinations as described in [pabot](https://pabot.org/) to run your tests parallely. 
+
+- Output
+
+  This run profile executes the entire test suite parallely in browserstack on the platforms configured in your `browserstack.yml` file. 
+
+  
+--- 
 
 ### Run tests on BrowserStack which need Local Environment access
 
@@ -136,4 +134,3 @@ Note:
 - [Using Automate REST API](https://www.browserstack.com/automate/rest-api) to access information about your tests via the command-line interface
 - Understand how many parallel sessions you need by using our [Parallel Test Calculator](https://www.browserstack.com/automate/parallel-calculator?ref=github)
 - For testing public web applications behind IP restriction, [Inbound IP Whitelisting](https://www.browserstack.com/local-testing/inbound-ip-whitelisting) can be enabled with the [BrowserStack Enterprise](https://www.browserstack.com/enterprise) offering
-

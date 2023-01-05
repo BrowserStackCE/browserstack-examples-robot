@@ -1,9 +1,0 @@
-datasources:c36e329fd2e134d2bc6e5863265be76be884280f
-commandlineoptions:97d170e1550eee4afc0af065b78cda302a97674c
-suitesfrom:no-suites-from-option
-file:21ab1486120a36fe5209ba652a3a5ba39c74bb8e
---suite Suites.E2E.E2E
---suite Suites.Login.loginTests
---suite Suites.Offers.Offers Test
---suite Suites.Product.Filter Test
---suite Suites.User.User Tests

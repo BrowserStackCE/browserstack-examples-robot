@@ -26,4 +26,3 @@ Set GPS location to Mumbai and check offers
     Confirm Offers Greater Than Zero
 
     Stop Test
-
