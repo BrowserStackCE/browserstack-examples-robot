@@ -23,10 +23,7 @@ The Selenium tests in this repo are run on BrowserStack real device/browser usin
     ```sh
     git clone https://github.com/BrowserStackCE/browserstack-examples-robot.git
     ```
-- Switch to the required branch
-    ```sh
-    git checkout sdk-develop
-    ```
+    
 - It is recommended to use a virtual environment to install dependencies. To create a virtual environment:
    ```sh
    python3 -m venv env
