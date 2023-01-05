@@ -1,0 +1,2 @@
+robotframework>=3.2
+robotframework-stacktrace>=0.4.1

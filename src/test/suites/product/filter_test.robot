@@ -16,28 +16,28 @@ Resource    ${CURDIR}/../../../app/pages/Favourites.robot
 # Test Case 1
 Apply 'Lowest to Highest' Order By Filter
 
-    Start Test    ${testType}
-
-    Only Run On Browserstack    Rename Session    Apply Filter
+    Start Onprem Test
 
     Select Lowest To Highest Filter
 
     Check If Product Sorted
 
-    [Teardown]    Stop Test    ${testType}
+    Stop Test
 
 # Test Case 2
 Apply Apple And Samsung Filter
 
-    Start Test    ${testType}
-
-    Only Run On Browserstack    Rename Session    Apply Filter
+    Start Onprem Test
 
     ${total_elements_before}=    Get Total Products
 
     Select Filter    Apple
     Select Filter    Samsung
 
-    Check If Total Product Changed    ${total_elements_before}
+    Wait Function
 
-    [Teardown]    Stop Test    ${testType}
+     ${total_elements}=    Get Total Products
+
+    Check If Total Product Changed    ${total_elements_before}    ${total_elements}
+
+    Stop Test

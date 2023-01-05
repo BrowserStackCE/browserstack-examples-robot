@@ -16,36 +16,29 @@ Resource    ${CURDIR}/../../../app/pages/Favourites.robot
 # Test case 5
 Check Login with image_not_loading_user
 
-    Start Test    ${testType}
-
-    Only Run On Browserstack    Rename Session    Check image_not_loading_user
+    Start Onprem Test
 
     Login.Login    image_not_loading_user    testingisfun99
 
     Check If Username Is    image_not_loading_user
 
-    [Teardown]    Stop Test    ${testType}
+    Stop Test
 
 # Test Case 6
 Check Order in existing_orders_user
 
-    Start Test    ${testType}
-
-    Only Run On Browserstack    Rename Session    Check existing_orders_user
+    Start Onprem Test
 
     Login.Login    existing_orders_user    testingisfun99
 
     Click On Orders
     Confirm Order Greater Than Zero
 
-    [Teardown]    Stop Test    ${testType}
-
+    Stop Test
 # Test Case 7
 Add fav and check fav count
 
-    Start Test    ${testType}
-
-    Only Run On Browserstack    Rename Session    Check Fav
+    Start Onprem Test
 
     Login.Login    existing_orders_user    testingisfun99
 
@@ -55,5 +48,5 @@ Add fav and check fav count
 
     Favourites.Confirm Favourites Greater Than Zero
 
-    [Teardown]    Stop Test    ${testType}
+    Stop Test
 

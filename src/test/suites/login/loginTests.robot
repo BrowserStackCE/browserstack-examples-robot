@@ -15,27 +15,22 @@ Resource    ${CURDIR}/../../../app/pages/Favourites.robot
 *** Test Cases ***
 #Test Case 3
 Check if Signin opens on clicking on favourites nav item
-
-    Start Test    ${testType}
-
-    Only Run On Browserstack    Rename Session    Check Signin
+    Start Onprem Test
 
     Click On Favourites
 
     On Signin Page
-
-    [Teardown]    Stop Test    ${testType}
-
+    
+    Stop Test
 
 #Test Case 4
 Check Login with locked_user
-
-    Start Test    ${testType}
-
-    Only Run On Browserstack    Rename Session    Check locked_user
+    
+    Start Onprem Test
 
     Login.Login    locked_user    testingisfun99
 
     Confirm Locked User Error
 
-    [Teardown]    Stop Test    ${testType}
+    Stop Test
+

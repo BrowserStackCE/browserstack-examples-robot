@@ -9,35 +9,33 @@ Robot Framework has easy syntax, utilising human-readable keywords and its capab
 
 This BrowserStack Example repository demonstrates a Selenium test framework written in Robot Framework with parallel testing capabilities. The Selenium test scripts are written for the open source [BrowserStack Demo web application](https://bstackdemo.com) ([Github](https://github.com/browserstack/browserstack-demo-app)). This BrowserStack Demo App is an e-commerce web application which showcases multiple real-world user scenarios. The app is bundled with offers data, orders data and products data that contains everything you need to start using the app and run tests out-of-the-box.
 
-The Selenium test tests are run on different platforms like on-prem, docker and BrowserStack using various run configurations and test capabilities.
+The Selenium tests in this repo are run on BrowserStack real device/browser using various run configurations and test capabilities.
 
 ---
+
+# BrowserStack
+
+[BrowserStack](https://browserstack.com) provides instant access to 3,000+ real mobile devices and browsers on a highly reliable cloud infrastructure that effortlessly scales as testing needs grow.
 
 ## Repository setup
 
 - Clone the repository
     ```sh
-    git clone https://github.com/browserstack/webdriver-framework.git
+    git clone https://github.com/BrowserStackCE/browserstack-examples-robot.git
     ```
 - Switch to the required branch
     ```sh
-    git checkout develop_webdriver-framework_python
+    git checkout sdk-develop
     ```
-- Install the webdriver-framework from the cloned repository locally
-    ```sh
-    cd selenium
-    pip install wheel
-    pip install .
-    ```
-- Clone the current repository
-    ```sh
-    git clone https://github.com/browserstack/browserstack-examples-robot.git
-    ```
-
-- Ensure you have the following dependencies installed on the machine
-    - Python 3
-
-    Install the requirements:
+- It is recommended to use a virtual environment to install dependencies. To create a virtual environment:
+   ```sh
+   python3 -m venv env
+   source env/bin/activate # on Mac
+   env\Scripts\activate # on Windows
+   ```
+- Ensure you have the dependencies installed on the machine as mentioned in the `requirements.txt file`
+    
+    To Install the requirements:
     ```sh
     pip install -r requirements.txt
     ```
@@ -60,160 +58,42 @@ The Selenium test tests are run on different platforms like on-prem, docker and 
   
   ---
 
+## Running Your Tests on Browserstack
 
-## Test infrastructure environments 
-
-- [On-premise/self-hosted](#on-premise-self-hosted)
-- [Docker](#docker)
-- [BrowserStack](#browserstack)
-
-
-## Configuring the maximum parallel test threads for this repository
-
-  For all the parallel run configuration profiles, you can configure the maximum parallel test threads by changing the settings below.
-
-  - Docker / BrowserStack
-
-    While running any of the below tests in parallel, set the maximum parallel thread using the pabot argument as below:
-
-    `pabot --processes <count_of_parallels> <name_of_suites_to_run>`
-  
-  
-## Test Reporting
-
-- [Allure reports](#generating-allure-reports)
-
----
-
-# On Premise / Self Hosted
-
-This infrastructure points to running the tests on your own machine using a browser (e.g. Chrome) using the browser's driver executables (e.g. ChromeDriver for Chrome). #{ Selenium enables this functionality using WebDriver for many popular browsers.}
-
-## Prerequisites
-
-- For this infrastructure configuration (i.e on-premise), ensure that the ChromeDriver executable is placed in the `/src/test/resources/drivers` folder.
-
-Note: The ChromeDriver version must match the Chrome browser version on your machine.
-
-## Running Your Tests
-
-### Run a specific test on your own machine
+### Run a specific test
 
 - How to run the test?
 
-  To run a specific test scenario, use the following command with the additional 'test-name' argument:
+  To run a specific test scenario, use the command below:
   
   ```sh
-  robot --variable testType:on-prem --test "<Test scenario name>" . 
+  browserstack-sdk robot /path/to/test.robot . 
   ```
-
-
-  where,  the argument 'test-name' can be any RobotFramework scenario name configured in this repository.
-  
-  E.g. "Check Login with locked_user", "E2E Test", "Apply 'Lowest to Highest' Order By Filter" or any of the other test scenario names, as outlined in [About the tests in this repository](#About-the-tests-in-this-repository) section.
 
 - Output
 
-  This run profile executes a specific test scenario on a single browser instance on your own machine.
+  This run profile executes the specific test scenario in browserstack on the browsers configured in your `browserstack.yml` file.
 
 
-### Run the entire test suite on your own machine
+### Run the entire test suite
 
 - How to run the test?
 
-  To run the entire test suite on your own machine, use the following command:
+  To run the entire test suite parallely in browserstack, you will require [pabot dependency](https://pabot.org/)  use the following command:
   
   ```sh
-  robot --variable testType:on-prem --suite <Suite-name> .
+  browserstack-sdk pabot path/to/testsuiteFolder .
   ```
-
+  You can also use the other combinations as described in [pabot](https://pabot.org/) to run your tests parallely. 
 
 - Output
 
-  This run profile executes the entire test suite sequentially on a single browser, on your own machine.
+  This run profile executes the entire test suite parallely in browserstack on the browsers configured in your `browserstack.yml` file. 
 
   
 ---
 
-# Docker
-
-[Docker](https://docs.docker.com/get-started/overview/) is an open source platform that provides the ability to package and test applications in an isolated environment called containers.
-
-## Prerequisites
-
-- Install and start [Docker](https://docs.docker.com/get-docker/).
-- Note: Docker should be running on the test machine. Ensure Docker Compose is installed as well.
-- Run `docker-compose pull` from the current directory of the repository.
-
-## Running Your Tests
-
-### Run a specific test on the docker infrastructure
-
-- How to run the test?
-
-    - Start the Docker by running the following command:
-
-  ```sh
-  docker-compose up -d
-  ```
-
-  To run a specific test scenario, use the following command with the additional 'test-name' argument:
-
-  ```sh
-    robot --variable testType:docker --test "<Test scenario name>" . 
-
-  ```
-
-  
-  where,  the argument 'test-name' can be any scenario name configured in this repository.
-  
-  E.g. "Check Login with locked_user", "E2E Test", "Apply 'Lowest to Highest' Order By Filter" or any of the other test scenario names, as outlined in [About the tests in this repository](#About-the-tests-in-this-repository) section.
-
-
-  - After tests are complete, you can stop the Docker by running the following command:
-      
-  ```sh
-  docker-compose down
-  ```
-
-- Output
-
-  This run profile executes a specific test scenario on a single browser deployed on a docker image.
-
-
-### Run the entire test suite in parallel using Docker
-
-- How to run the test?
-
-    - Start the docker image first by running the following command:
-
-  ```sh
-  docker-compose up -d
-  ```
-
-    - To run the entire test suite in parallel on the docker image, use the following command:
-
-  ```sh
-  robot --variable testType:docker --suite <Suite-Name> .
-  ```
-
-    - After the tests are complete stop the Selenium grid by running the following command:
-
-  ```sh
-  docker-compose down
-  ```
-
-- Output
-
-  This run profile executes the entire test suite in parallel on a single browser, deployed on a docker image.
-
----
-
-# BrowserStack
-
-[BrowserStack](https://browserstack.com) provides instant access to 2,000+ real mobile devices and browsers on a highly reliable cloud infrastructure that effortlessly scales as testing needs grow.
-
-## Prerequisites
+## Prerequisites to run your tests on Browserstack
 
 - Create a new [BrowserStack account](https://www.browserstack.com/users/sign_up) or use an existing one.
 - Identify your BrowserStack username and access key from the [BrowserStack Automate Dashboard](https://automate.browserstack.com/) and export them as environment variables using the below commands.
@@ -232,91 +112,26 @@ Note: The ChromeDriver version must match the Chrome browser version on your mac
   set BROWSERSTACK_ACCESS_KEY=<browserstack-access-key>
   ```
   
-  Alternatively, you can also hardcode username and access_key objects in the [bstack-config.yaml](resources/conf/caps/bstack-config.yaml) file.
-- Now we need to set the path for the config file we would want to use. 
+  Alternatively, you can also hardcode username and access_key objects in the `browserstack.yml` sdk file. 
 
-    - For unix based and Mac machines:
-
-      ```sh
-      export CONFIG_FILE_PATH=<config-file-path>
-      ```
-
-    - For Windows:
-
-      ```sh
-      set CONFIG_FILE_PATH=<config-file-path>
-      ```
 Note:
-- We have configured a list of test capabilities in the [bstack-config.yaml](resources/conf/caps/bstack-config.yaml) file. You can certainly update them based on your device / browser test requirements. 
-- The exact test capability values can be easily identified using the [Browserstack Capability Generator](https://browserstack.com/automate/capabilities)
+- You can use this SDK config generator [BrowserStack SDK Configurator](https://www.browserstack.com/docs/automate/selenium/sdk-config-generator) to create your `browserstack.yml` file and certainly update them based on your device / browser test requirements. 
 
 
-## Running Your Tests
 
-### Run a specific test on BrowserStack
+### Run tests on BrowserStack which need Local Environment access
 
-In this section, we will run a single test on Chrome browser on Browserstack. To change test capabilities for this configuration, please refer to the `bstack-config.yaml` file.
-
-- How to run the test?
+  The only change you need to do here, is to add the respective options in the `browserstack.yml` file.
+  The browserstack-sdk handles the starting and termination of BrowserStack Local Instance.
   
-
-  To run a specific test scenario, use the following command with the additional 'test-name' argument:
-
-  ```sh
-  robot --variable testType:bstack-single --test "<Test scenario name>" . 
-
-  ```
-
-  where,  the argument 'test-name' can be any scenario name configured in this repository.
+`browserstackLocal: true`
   
-  E.g. "Check Login with locked_user", "E2E Test", "Apply 'Lowest to Highest' Order By Filter" or any of the other test scenario names, as outlined in [About the tests in this repository](#About-the-tests-in-this-repository) section.
-
-
-- Output
-
-  This run profile executes a single test on a single browser on BrowserStack. Please refer to your [BrowserStack dashboard](https://automate.browserstack.com/) for test results.
-
-
-### Run the entire test suite in parallel on a single BrowserStack browser
-
-In this section, we will run the tests in parallel on a single browser on Browserstack. Refer to `bstack-config.yaml` file to change test capabilities for this configuration.
-
-- How to run the test?
-
-  To run the entire test suite in parallel on a single BrowserStack browser, use the following command:
-  
-  ```sh
-  pabot --testlevelsplit --variable testType:bstack-single --suite <Suite-Name> .
-  ```
-
-
-- Output
-
-  This run profile executes the entire test suite in parallel on a single BrowserStack browser. Please refer to your [BrowserStack dashboard](https://automate.browserstack.com/) for test results.
-
-  - Note: By default, this execution would run maximum 5 test threads in parallel on BrowserStack. Refer to the section ["Configuring the maximum parallel test threads for this repository"](#Configuring-the-maximum-parallel-test-threads-for-this-repository) for updating the parallel thread count based on your requirements.
-
-
-### Run a tests on BrowserStack which need Local Environment access
-
-  The only change you need to do here, is to add the respective options in the `bstack-config.yaml` file.
-  The webdriver framework handles the starting and termination of BrowserStack Local Instance.
-  
-  Here you just need to change the CONFIG_FILE_PATH environment variable to use [bstack-local-config.yaml](resources/conf/caps/bstack-local-config.yaml) file.
-
-
-## Generating Allure Reports
-
-- Add `--listener 'allure_robotframework;./results/allure'` to any test command above.
-  - Example: `robot --listener 'allure_robotframework;./results/allure' --variable testType:single --suite offers .`
-
-- Serve the Allure report on a server: `allure serve`
+  browserstackLocal is set to true in this repo.
 
 ## Additional Resources
 
 - View your test results on the [BrowserStack Automate dashboard](https://www.browserstack.com/automate)
-- Documentation for writing [Automate test scripts in Java](https://www.browserstack.com/automate/java)
-- Customizing your tests capabilities on BrowserStack using our [test capability generator](https://www.browserstack.com/automate/capabilities)
+- Customizing your tests capabilities on BrowserStack using our [SDK Configurator](https://www.browserstack.com/docs/automate/selenium/sdk-config-generator)
 - [List of Browsers & mobile devices](https://www.browserstack.com/list-of-browsers-and-platforms?product=automate) for automation testing on BrowserStack #{ Replace link for non-Selenium frameworks. }
 - [Using Automate REST API](https://www.browserstack.com/automate/rest-api) to access information about your tests via the command-line interface
 - Understand how many parallel sessions you need by using our [Parallel Test Calculator](https://www.browserstack.com/automate/parallel-calculator?ref=github)

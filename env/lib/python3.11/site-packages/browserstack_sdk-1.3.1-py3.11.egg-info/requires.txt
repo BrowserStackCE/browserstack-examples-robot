@@ -1,0 +1,6 @@
+psutil
+pyyaml
+browserstack-local
+packaging
+requests
+requests_toolbelt
