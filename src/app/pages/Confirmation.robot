@@ -13,7 +13,8 @@ On Signin Page
     Location Should Contain   /signin
 
 Confirm Locked User Error
-    Element Text Should Be  class=api-error    Your account has been locked.
+    Wait Until Element Is Visible    //h3[@class="api-error"]
+    Element Text Should Be    //h3[@class="api-error"]    Your account has been locked.
 
 Confirm Order Greater Than Zero
     ${orders}=     Get Element Count    class=order

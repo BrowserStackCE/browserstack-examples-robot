@@ -15,10 +15,7 @@ Resource    ${CURDIR}/../../../app/pages/Favourites.robot
 *** Test Cases ***
 #Test Case 8
 E2E Test
-
-    Start Test    ${testType}
-
-    Only Run On Browserstack    Rename Session    E2E
+    Start Onprem Test
 
     Login From CSV    fav_user
 
@@ -43,6 +40,5 @@ E2E Test
 
     Item In Orders Should Be Equal To    3
 
-    [Teardown]    Stop Test    ${testType}
-
-
+    Stop Test
+    

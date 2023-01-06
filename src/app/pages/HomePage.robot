@@ -42,20 +42,20 @@ Check If Product Sorted
 
     ${prices}=    Get Product Prices From CSV
 
-    Lists Should Be Equal   ${HOMEPAGE_PRICE_LIST}   ${prices}
+    Lists Should Be Equal    ${HOMEPAGE_PRICE_LIST}    ${prices}
 
 Get Total Products
-    Wait Until Element Is Visible   css=input[value='Apple'] + span
-    ${total_elements}=  Get Text  class=products-found
-
-    [return]  ${total_elements}
+    Wait Until Element Is Visible    css=input[value='Apple'] + span
+    ${total_elements}=    Get Text    class=products-found
+    [return]    ${total_elements}
 
 Select Filter
-    [Arguments]   ${filter}
-    Click Element   css=input[value='${filter}'] + span
-
+    [Arguments]    ${filter}
+    Wait Until Element Is Visible    css=input[value='Apple'] + span
+    Click Element    css=input[value='${filter}'] + span
+    
 
 Check If Total Product Changed
-    [Arguments]   ${total_elements_before}
-    Element Text Should Not Be   class=products-found   ${total_elements_before}
+    [Arguments]    ${total_elements_before}    ${total_elements}
+    Should Not Be Equal    ${total_elements_before}    ${total_elements}
 

@@ -15,9 +15,7 @@ Resource    ${CURDIR}/../../../app/pages/Favourites.robot
 #Test Case 9
 Set GPS location to Mumbai and check offers
 
-    keywords.Start Test    ${testType}
-
-    Only Run On Browserstack    Rename Session    Check Offers Test
+    Start Onprem Test
 
     Set Location    19.043192    72.86305240000002
 
@@ -27,5 +25,4 @@ Set GPS location to Mumbai and check offers
 
     Confirm Offers Greater Than Zero
 
-    [Teardown]    Stop Test    ${testType}
-
+    Stop Test

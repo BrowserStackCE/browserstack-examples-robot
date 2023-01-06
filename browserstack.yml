@@ -1,0 +1,23 @@
+userName: BROWSERSTACK_USERNAME
+accessKey: BROWSERSTACK_ACCESS_KEY
+platforms:
+  - os: Windows
+    osVersion: 11
+    browserName: Chrome
+    browserVersion: 103.0
+  - os: Windows
+    osVersion: 10
+    browserName: Firefox
+    browserVersion: 102.0
+  - os: OS X
+    osVersion: Big Sur
+    browserName: Safari
+    browserVersion: 14.1
+browserstackLocal: true
+buildName: bstack-robot-demo
+buildIdentifier: ${BUILD_NUMBER}
+projectName: BrowserStack Robot
+debug: true
+networkLogs: true
+consoleLogs: info
+framework: robot
