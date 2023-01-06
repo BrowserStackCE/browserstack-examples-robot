@@ -4,8 +4,6 @@ Library    SeleniumLibrary
     
 *** Keywords ***
 Start Onprem Test
-    # Create Webdriver    Chrome    executable_path=/Users/adarsh/Downloads/chromedriver
-    # Go To    http://bstackdemo.com/
     Open Browser    https://bstackdemo.com/
 
 Get Password From CSV
