@@ -55,6 +55,30 @@ The Selenium tests in this repo are run on BrowserStack real device/browser usin
   
   ---
 
+## Running your tests on a Local Browser
+
+### Running a single test on a Local browser
+
+  To execute a single test run the below command: 
+  ```sh
+  robot /path/to/test.robot
+  ```
+  For eg: 
+  ```sh
+  robot ./src/test/suites/e2e/e2e.robot
+  ```
+
+### Running parallel tests on a Local browser 
+ 
+  To execute a single test run the below command: 
+  ```sh
+  pabot path/to/testsuiteFolder
+  ```
+  For eg: 
+  ```sh
+  pabot ./src/test/suites
+  ```
+
 ## Running Your Tests on Browserstack
 
 ## Prerequisites to run your tests on Browserstack
@@ -122,19 +146,6 @@ Note:
 `browserstackLocal: true`
   
   browserstackLocal is set to true in this repo.
-
-### Running on premise tests (in a Local browser).
-
-  To run tests on a local browser in your machine, you will first require to download the releavant driver. 
-
-  Next you can use the `Create Webdriver` keyword to configure the execulatble path(path to the downloaded driver) and add the command to open URL. 
-
-  Below is the sample code to run tests on premise in a `Chrome` browser, the only change that you will be required to make is in the `keywords.robot` file. Within the `Start Test` Keyword, replace the exisiting commands with:
-
-   ```sh
-  Create Webdriver    Chrome    executable_path=/path/to/your/chromedriver
-  Go To    http://bstackdemo.com/
-  ``` 
 
 ## Additional Resources
 
