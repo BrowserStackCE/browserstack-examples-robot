@@ -123,6 +123,19 @@ Note:
   
   browserstackLocal is set to true in this repo.
 
+### Running on premise tests (in a Local browser).
+
+  To run tests on a local browser in your machine, you will first require to download the releavant driver. 
+
+  Next you can use the `Create Webdriver` keyword to configure the execulatble path(path to the downloaded driver) and add the command to open URL. 
+
+  Below is the sample code to run tests on premise in a `Chrome` browser, the only change that you will be required to make is in the `keywords.robot` file. Within the `Start Test` Keyword, replace the exisiting commands with:
+
+   ```sh
+  Create Webdriver    Chrome    executable_path=/path/to/your/chromedriver
+  Go To    http://bstackdemo.com/
+  ``` 
+
 ## Additional Resources
 
 - View your test results on the [BrowserStack Automate dashboard](https://www.browserstack.com/automate)

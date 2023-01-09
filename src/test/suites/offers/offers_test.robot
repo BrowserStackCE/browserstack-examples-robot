@@ -15,7 +15,7 @@ Resource    ${CURDIR}/../../../app/pages/Favourites.robot
 #Test Case 9
 Set GPS location to Mumbai and check offers
 
-    Start Onprem Test
+    Start Test
 
     Set Location    19.043192    72.86305240000002
 

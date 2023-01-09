@@ -15,7 +15,7 @@ Resource    ${CURDIR}/../../../app/pages/Favourites.robot
 *** Test Cases ***
 #Test Case 3
 Check if Signin opens on clicking on favourites nav item
-    Start Onprem Test
+    Start Test
 
     Click On Favourites
 
@@ -26,7 +26,7 @@ Check if Signin opens on clicking on favourites nav item
 #Test Case 4
 Check Login with locked_user
     
-    Start Onprem Test
+    Start Test
 
     Login.Login    locked_user    testingisfun99
 

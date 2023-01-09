@@ -15,7 +15,7 @@ Resource    ${CURDIR}/../../../app/pages/Favourites.robot
 *** Test Cases ***
 #Test Case 8
 E2E Test
-    Start Onprem Test
+    Start Test
 
     Login From CSV    fav_user
 

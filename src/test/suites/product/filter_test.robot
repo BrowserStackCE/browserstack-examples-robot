@@ -16,7 +16,7 @@ Resource    ${CURDIR}/../../../app/pages/Favourites.robot
 # Test Case 1
 Apply 'Lowest to Highest' Order By Filter
 
-    Start Onprem Test
+    Start Test
 
     Select Lowest To Highest Filter
 
@@ -27,7 +27,7 @@ Apply 'Lowest to Highest' Order By Filter
 # Test Case 2
 Apply Apple And Samsung Filter
 
-    Start Onprem Test
+    Start Test
 
     ${total_elements_before}=    Get Total Products
 
