@@ -55,6 +55,30 @@ The Selenium tests in this repo are run on BrowserStack real device/browser usin
   
   ---
 
+## Running your tests on an On-Prem Browser
+
+### Running a single test on an On-Prem Browser
+
+  To execute a single test run the below command: 
+  ```sh
+  robot /path/to/test.robot
+  ```
+  For eg: 
+  ```sh
+  robot ./src/test/suites/e2e/e2e.robot
+  ```
+
+### Running parallel tests on On-Prem Browsers 
+ 
+  To execute a single test run the below command: 
+  ```sh
+  pabot path/to/testsuiteFolder
+  ```
+  For eg: 
+  ```sh
+  pabot ./src/test/suites
+  ```
+
 ## Running Your Tests on Browserstack
 
 ## Prerequisites to run your tests on Browserstack

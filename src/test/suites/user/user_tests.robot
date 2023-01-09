@@ -16,7 +16,7 @@ Resource    ${CURDIR}/../../../app/pages/Favourites.robot
 # Test case 5
 Check Login with image_not_loading_user
 
-    Start Onprem Test
+    Start Test
 
     Login.Login    image_not_loading_user    testingisfun99
 
@@ -27,7 +27,7 @@ Check Login with image_not_loading_user
 # Test Case 6
 Check Order in existing_orders_user
 
-    Start Onprem Test
+    Start Test
 
     Login.Login    existing_orders_user    testingisfun99
 
@@ -38,7 +38,7 @@ Check Order in existing_orders_user
 # Test Case 7
 Add fav and check fav count
 
-    Start Onprem Test
+    Start Test
 
     Login.Login    existing_orders_user    testingisfun99
 

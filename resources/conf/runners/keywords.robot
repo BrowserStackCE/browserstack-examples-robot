@@ -3,7 +3,7 @@ Library    Library.py
 Library    SeleniumLibrary
     
 *** Keywords ***
-Start Onprem Test
+Start Test
     Open Browser    https://bstackdemo.com/
 
 Get Password From CSV
