@@ -55,9 +55,9 @@ The Selenium tests in this repo are run on BrowserStack real device/browser usin
   
   ---
 
-## Running your tests on a Local Browser
+## Running your tests on an On-Prem Browser
 
-### Running a single test on a Local browser
+### Running a single test on an On-Prem Browser
 
   To execute a single test run the below command: 
   ```sh
@@ -68,7 +68,7 @@ The Selenium tests in this repo are run on BrowserStack real device/browser usin
   robot ./src/test/suites/e2e/e2e.robot
   ```
 
-### Running parallel tests on a Local browser 
+### Running parallel tests on On-Prem Browsers 
  
   To execute a single test run the below command: 
   ```sh
