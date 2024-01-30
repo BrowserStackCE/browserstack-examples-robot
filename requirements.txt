@@ -1,5 +1,0 @@
-selenium==4.2
-robotframework==6.0
-robotframework-pabot==2.6.0
-robotframework-seleniumlibrary==6.0
-browserstack-sdk
