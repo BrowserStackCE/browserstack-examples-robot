@@ -9,9 +9,10 @@ robotframework = "==6.0"
 robotframework-pabot = "==2.6.0"
 robotframework-seleniumlibrary = "==6.0"
 browserstack-sdk = "*"
+# Conditional dependencies for macOS
+pyobjc-core = {version = "*", markers = "sys_platform == 'darwin'"}
 
 [dev-packages]
 
 [requires]
-python_version = "3.11"
-python_full_version = "3.11.6"
+python_version = ">=3.8"

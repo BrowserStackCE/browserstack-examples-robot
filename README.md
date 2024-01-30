@@ -24,18 +24,42 @@ The Selenium tests in this repo are run on BrowserStack's real device/browser us
     ```sh
     git clone https://github.com/BrowserStackCE/browserstack-examples-robot.git
     ```
-    
-- It is recommended to use a virtual environment to install dependencies. To create a virtual environment:
-    ```sh
-    pip install pipenv
-    pipenv shell
-    ```
-- Ensure you have the dependencies installed on the machine as mentioned in the `Pipfile`.
-    
-    To install the requirements:
-    ```sh
-    pipenv install
-    ```
+
+### Using Python 3.8 or Above with Pipenv
+
+This project requires Python version 3.8 or higher. Robot Framework requires Python 3.8 or newer. The latest version that supports Python 3.6 and 3.7 is Robot Framework 6.1.1. If you need to use Python 2, Jython, or IronPython, you can use Robot Framework 4.1.3. 
+
+If you do not have a compatible Python version installed, please follow these steps:
+
+1. **Install Python 3.8 or Higher**:
+   - Download and install Python 3.8 or a higher version from the official Python website: https://www.python.org/downloads/
+   - Ensure that the installed Python version is added to your system's PATH.
+
+2. **Install and Set Up Pipenv**:
+   - Install Pipenv using:
+     ```
+     pip install pipenv
+     ```
+   - Create a Pipenv environment specifically for Python 3.8 or higher:
+     ```
+     pipenv --python 3.8
+     ```
+   - Activate the Pipenv environment:
+     ```
+     pipenv shell
+     ```
+   - Verify the Python version:
+     ```
+     python --version
+     ```
+     It should display Python 3.8.x or higher.
+
+3. **Install Dependencies**:
+   - Install the required dependencies in your Pipenv environment by running:
+     ```
+     pipenv install
+     ```
+   - This installs all the dependencies listed in the `Pipfile`.
 
 ## About the Tests in This Repository
 
