@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+selenium = "==4.2"
+robotframework = "==6.0"
+robotframework-pabot = "==2.6.0"
+robotframework-seleniumlibrary = "==6.0"
+browserstack-sdk = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"
+python_full_version = "3.11.6"
